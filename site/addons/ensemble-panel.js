@@ -544,6 +544,13 @@
     if (el) new MutationObserver(schedule).observe(el, { childList: true });
   }
   if (isFair) onceFairLines();
+  if (isDraw && !document.querySelector('script[data-rd-sci]')) {  // added: the friendship-ties slider (sci-slider.js)
+    const me = document.currentScript || [...document.scripts].find(s => /ensemble-panel\.js/.test(s.src));
+    const s = document.createElement('script');
+    s.src = (me && me.src ? me.src.replace(/ensemble-panel\.js.*$/, '') : '../addons/') + 'sci-slider.js';
+    s.dataset.rdSci = '1';
+    document.body.appendChild(s);
+  }
   window.__RD_ENSEMBLE = { logTrees, sciKept: (data, labels, k) => sciFiles[data.abbr] && sciKept(data, sciFiles[data.abbr], labels, k) };  // for checking against redistricting_addons.ensemble.log_spanning_trees
   schedule();
 })();

@@ -81,3 +81,5 @@ In short: Meta's Social Connectedness Index (how likely people in two counties a
 For agents: `redistricting_addons/sci.py` (data, score), `sci_districts.py` (optimised districts), `sci_states.py` (50 states); details in `redistricting_addons/README.md` and `docs/PLAN.md`.
 
 **Highlights:** [docs/HIGHLIGHTS.md](docs/HIGHLIGHTS.md) collects the 16 most telling pictures from this work (official maps against neutral maps, one state drawn six ways, the 50 states redrawn by social ties), each with a short caption.
+
+**Interactive:** `site/sci-states/` shows the 50-state maps (pick a version, click a state); the Draw toy has a friendship-ties slider (ZIP-code social connectedness, `docs/SCI_ZCTA.md`).
