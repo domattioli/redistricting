@@ -124,7 +124,9 @@ def districts(st: str, steps: int = 3000) -> Path:
     return out
 
 
-def states(variant: str = "free.compact", seed: int = 0) -> Path:
+def states(variant: str = "free.compact", seed: int = 0, others=None, out_name: str = "states.png") -> Path:
+    """Today's states beside the neutral sample and ``variant`` (default), or beside ``others``, a list of
+    (title, sci_states variant) pairs (added option, e.g. the ``sci_grow`` versions), written to ``out_name``."""
     from . import sci_states as S
     plt, PolyCollection, cmap = _mpl()
     U = S.build_units()
@@ -165,7 +167,15 @@ def states(variant: str = "free.compact", seed: int = 0) -> Path:
     c0 = np.cos(np.radians(38))
     plans = [("Today's 50 states", today), ("Neutral ReCom states (equal population)", neutral),
              ("Social-ties states, friendship-compact", sci)]
-    fig, axes = plt.subplots(3, 1, figsize=(12, 22))
+    if others:
+        plans = [("Today's 50 states", today)]
+        for title, v in others:
+            r_ = json.loads((S.OUT / f"{v}.json").read_text(encoding="utf-8"))
+            lab_ = np.full(len(U["pop"]), -1, np.int64)
+            for s_ in r_["states"]:
+                lab_[[pos[x] for x in s_["units"].split(",")]] = s_["id"]
+            plans.append((title, lab_))
+    fig, axes = plt.subplots(len(plans), 1, figsize=(12, 7.3 * len(plans)))
     for ax, (name, lab) in zip(axes, plans):
         D = np.bincount(lab, weights=ud, minlength=k); R = np.bincount(lab, weights=ur, minlength=k)
         sh = D / np.maximum(D + R, 1)
@@ -180,10 +190,10 @@ def states(variant: str = "free.compact", seed: int = 0) -> Path:
         ax.autoscale_view(); ax.set_aspect("equal"); ax.axis("off")
         sen = 2 * int(np.sum(sh > .5))
         ax.set_title(f"{name}: {int(np.sum(sh > .5))} of 50 states vote Democratic in 2020 ({sen} senators)", fontsize=12)
-    fig.suptitle("Fifty states three ways, coloured by 2020 presidential vote (lower 48 shown)", fontsize=14, x=.01, ha="left")
-    fig.tight_layout()
+    fig.suptitle(f"Fifty states {['', 'one way', 'two ways', 'three ways', 'four ways'][min(len(plans), 4)]}, coloured by 2020 presidential vote (lower 48 shown)", fontsize=14, x=.01, ha="left")
+    fig.tight_layout(**({"rect": (0, 0, 1, 0.985)} if others else {}))  # room for the title above four panels
     OUT.mkdir(parents=True, exist_ok=True)
-    out = OUT / "states.png"
+    out = OUT / out_name
     fig.savefig(out, dpi=110, facecolor="white")
     plt.close(fig)
     return out
@@ -193,11 +203,17 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(prog="python -m redistricting_addons.samples", description=__doc__.split("\n\n")[0])
     ap.add_argument("--states", nargs="*", default=["PA", "NC", "TX", "WI"])
     ap.add_argument("--fifty", default="free.compact", help="sci_states variant for the 50-state picture ('' to skip)")
+    ap.add_argument("--grown", action="store_true", help="also docs/samples/states_grown.png (needs sci_grow output)")
     a = ap.parse_args(argv)
     for st in a.states:
         print("wrote", districts(st))
     if a.fifty:
         print("wrote", states(a.fifty))
+    if a.grown:  # added option: today's states beside the sci_grow versions
+        print("wrote", states(others=[("Grown from today's capitals by friendships (today's populations)", "grown"),
+                                      ("Grown, then made friendship-compact", "grown.strong"),
+                                      ("Equal states, strongly friendship-compact", "free.strong")],
+                              out_name="states_grown.png"))
     return 0
 
 
