@@ -40,6 +40,10 @@ For AI agents (detailed):
 - Output: ``site/data/sci_states/<free|capitals>.<raw|adjusted>.json`` (states with name, capital, population,
   deviation, score contribution and unit GEOIDs; scores; today's states' score; neutral quantiles; parameters) and
   ``docs/sci_states/<same>.png``.
+- Friendship compactness (``<free|capitals>.compact``): each state's cohesion = share of its people's
+  friendship weight (raw SCI, pairs within one county included) that stays inside the state, the friendship analogue of a compactness
+  score; the objective is the mean over states (each state counts once), with a soft cap: every cut edge above
+  today's state lines' count (2,491 unit edges) costs 100 / cap points. Neutral ReCom states use about 6,160.
 """
 from __future__ import annotations
 
@@ -265,11 +269,26 @@ def build_units(split: int = 100_000) -> dict:
 class Scorer:
     """Ties-kept score with cheap updates when two states change."""
 
-    def __init__(self, M, region, pop, k):
-        self.M0 = M.copy(); np.fill_diagonal(self.M0, 0)
+    def __init__(self, M, region, pop, k, own=False):
+        # own=False: pairs within one county left out (ties kept); own=True: included (friendship cohesion, so a
+        # state inside one big county is not scored as having no internal ties)
+        self.M0 = M.copy()
+        if not own:
+            np.fill_diagonal(self.M0, 0)
         self.region, self.pop, self.k, self.R = region, pop, k, M.shape[0]
         P = np.bincount(region, weights=pop, minlength=self.R)
         self.total = float(P @ self.M0 @ P)
+        self.M0P = self.M0 @ P  # each region's cross-county friendship weight to everyone
+
+    def cohesion(self, labels):
+        """Per state: share of its people's cross-county friendship weight that stays inside the state
+        (friendship compactness: 100% = nobody has a friend in another county outside the state)."""
+        out = np.zeros(self.k)
+        for s in range(self.k):
+            fs = self.f(labels, s)
+            den = float(fs @ self.M0P)
+            out[s] = float(fs @ self.M0 @ fs) / den if den > 0 else 0.0
+        return out
 
     def f(self, labels, s):
         m = labels == s
@@ -361,15 +380,17 @@ def voronoi_split(n, eu, ev, length, pop, ca, cb, lo_a, hi_a, lo_b, hi_b, rng, t
 
 
 class Chain:
-    def __init__(self, U, labels, k, tol, objective, capitals=None, beta=4.0, seed=0):
+    def __init__(self, U, labels, k, tol, objective, capitals=None, beta=4.0, seed=0, cohesion=False, max_cut=None):
         self.U, self.k, self.tol = U, k, tol
+        self.use_cohesion, self.max_cut = cohesion, max_cut
         self.g = Graph(pop=U["pop"], edges=U["edges"])
         self.labels = np.asarray(labels, np.int64).copy()
         self.ideal = U["pop"].sum() / k
         self.rng = np.random.default_rng(seed)
         self.caps = capitals  # unit index of each state's capital (state s <-> caps[s]) or None
-        self.sc = Scorer(U[f"M_{objective}"], U["region"], U["pop"], k)
+        self.sc = Scorer(U[f"M_{objective}"], U["region"], U["pop"], k, own=cohesion)
         self.parts = self.sc.parts(self.labels)
+        self.den = np.array([float(self.sc.f(self.labels, s) @ self.sc.M0P) for s in range(k)])
         Mf = U[f"M_{objective}"]
         e, r = U["edges"], U["region"]
         s = np.log(np.maximum(Mf[r[e[:, 0]], r[e[:, 1]]], 1e-12))
@@ -377,8 +398,24 @@ class Chain:
         self.wmax_all = (1.0 + beta * rank) if beta else np.ones(len(e))
         self.km = _edge_km(U)
 
+    def update(self, s):
+        fs = self.sc.f(self.labels, s)
+        self.parts[s] = float(fs @ self.sc.M0 @ fs)
+        self.den[s] = float(fs @ self.sc.M0P)
+
+    def cut_edges(self):
+        e = self.g.edges
+        return int(np.count_nonzero(self.labels[e[:, 0]] != self.labels[e[:, 1]]))
+
     def score(self):
-        return self.sc.pct(self.parts)
+        """Ties kept (percent of all cross-county weight), or with ``cohesion`` the mean over states of each state's
+        friendship compactness. With ``max_cut``, every cut edge above it costs as much as 100 / max_cut points, so
+        plans are pushed under the cap before anything else."""
+        s = (100 * float(np.mean(self.parts / np.maximum(self.den, 1e-300))) if self.use_cohesion
+             else self.sc.pct(self.parts))
+        if self.max_cut is not None:
+            s -= 100 * max(0, self.cut_edges() - self.max_cut) / self.max_cut
+        return s
 
     def move(self, a=None, b=None, targets=None, sci_trees=True):
         L, e = self.labels, self.g.edges
@@ -401,7 +438,8 @@ class Chain:
         w = self.wmax_all[em] if sci_trees else np.ones(int(em.sum()))
         if caps is not None:
             # two-capital Voronoi split; random edge lengths for variety, strongly tied edges shorter
-            length = self.km[em] * self.rng.uniform(0.3, 1.7, int(em.sum())) / w
+            spread = 0.15 if self.max_cut is not None else 0.7  # smoother borders when compactness counts
+            length = self.km[em] * self.rng.uniform(1 - spread, 1 + spread, int(em.sum())) / w
             side = voronoi_split(nodes.size, eu, ev, length, p, caps[0], caps[1], ta - d, ta + d, tb - d, tb + d, self.rng)
         else:
             side = _split(nodes, eu, ev, w, p, ta - d, ta + d, tb - d, tb + d, self.rng, caps)
@@ -416,8 +454,7 @@ class Chain:
         L[nodes[sa]] = a
         L[nodes[~sa]] = b
         for s_ in (a, b):
-            fs = self.sc.f(L, s_)
-            self.parts[s_] = float(fs @ self.sc.M0 @ fs)
+            self.update(s_)
         return True
 
     def devs(self):
@@ -467,8 +504,7 @@ def _improving_split(ch: Chain, a, b, tries=30):
     L[nodes[best_side]] = a
     L[nodes[~best_side]] = b
     for s_ in (a, b):
-        fs = ch.sc.f(L, s_)
-        ch.parts[s_] = float(fs @ ch.sc.M0 @ fs)
+        ch.update(s_)
     return True
 
 
@@ -861,8 +897,7 @@ def balance_pairs(ch: Chain, log=print, limit=200_000):
             L[nodes[side]] = a
             L[nodes[~side]] = b
             for s_ in (a, b):
-                fs = ch.sc.f(L, s_)
-                ch.parts[s_] = float(fs @ ch.sc.M0 @ fs)
+                ch.update(s_)
             moved = True
             break
         if not moved:
@@ -910,11 +945,11 @@ def grow_from_capitals(U, caps, k, objective) -> np.ndarray:
 
 
 def short_bursts(ch: Chain, bursts: int, length: int, log=print):
-    best, best_labels, best_parts = ch.score(), ch.labels.copy(), ch.parts.copy()
+    best, best_labels, best_parts, best_den = ch.score(), ch.labels.copy(), ch.parts.copy(), ch.den.copy()
     t0 = time.perf_counter()
     for i in range(bursts):
-        ch.labels, ch.parts = best_labels.copy(), best_parts.copy()
-        bb, bl, bp = -1.0, None, None
+        ch.labels, ch.parts, ch.den = best_labels.copy(), best_parts.copy(), best_den.copy()
+        bb, bl, bp, bd = -np.inf, None, None, None
         done = tries = 0
         while done < length and tries < 20 * length:
             tries += 1
@@ -922,12 +957,12 @@ def short_bursts(ch: Chain, bursts: int, length: int, log=print):
                 done += 1
                 s = ch.score()
                 if s > bb:
-                    bb, bl, bp = s, ch.labels.copy(), ch.parts.copy()
+                    bb, bl, bp, bd = s, ch.labels.copy(), ch.parts.copy(), ch.den.copy()
         if bl is not None and bb >= best:
-            best, best_labels, best_parts = bb, bl, bp
+            best, best_labels, best_parts, best_den = bb, bl, bp, bd
         if (i + 1) % 100 == 0:
             log(f"  burst {i + 1}/{bursts}: {best:.3f}% ({time.perf_counter() - t0:.0f}s)")
-    ch.labels, ch.parts = best_labels, best_parts
+    ch.labels, ch.parts, ch.den = best_labels, best_parts, best_den
     return best
 
 
@@ -959,8 +994,14 @@ def write(U, labels, name, info, current):
                        "dev_pct": round(100 * (pop[m].sum() / ideal - 1), 3),
                        "today_states": sorted({abbr.get(x[:2], x[:2]) for x in keys[m].tolist()}),
                        "units": ",".join(keys[m].tolist())})
+    coh = Scorer(U["M_raw"], U["region"], U["pop"], k, own=True).cohesion(labels)
+    for s_, c in zip(states, coh.tolist()):
+        s_["cohesion_pct"] = round(100 * c, 2)
+    e = U["edges"]
     res = {"v": 1, "name": name, **{k_: v for k_, v in info.items() if k_ != "capital_names"},
-           "ties_kept_pct": score_labels(U, labels, k), "today": current, "states": states}
+           "ties_kept_pct": score_labels(U, labels, k), "today": current,
+           "cohesion_pct": {"mean": round(100 * float(coh.mean()), 2), "min": round(100 * float(coh.min()), 2)},
+           "cut_edges": int(np.count_nonzero(labels[e[:, 0]] != labels[e[:, 1]])), "states": states}
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / f"{name}.json").write_text(json.dumps(res, separators=(",", ":")), encoding="utf-8")
     draw(U, labels, DOCS / f"{name}.png", info.get("title", name), res)
@@ -1065,7 +1106,8 @@ def draw(U, labels, path, title, res):
 
 def report() -> None:
     """docs/SCI_STATES.md from the saved variants."""
-    names = {"free.raw": "Free, raw SCI", "free.adjusted": "Free, distance-adjusted SCI",
+    names = {"free.compact": "Free, friendship-compact", "capitals.compact": "Today's capitals, friendship-compact",
+             "free.raw": "Free, raw SCI", "free.adjusted": "Free, distance-adjusted SCI",
              "capitals.raw": "Today's capitals, raw SCI", "capitals.adjusted": "Today's capitals, distance-adjusted SCI"}
     res = {v: json.loads((OUT / f"{v}.json").read_text(encoding="utf-8")) for v in names if (OUT / f"{v}.json").exists()}
     if not res:
@@ -1093,13 +1135,25 @@ def report() -> None:
              "share any state.",
              "- These maps show how the country is connected; the index follows migration, party and race, so they are "
              "a lens, not a neutral proposal.", "",
-             "| Version | Ties kept, raw | Ties kept, distance-adjusted | Largest population gap | Map |",
-             "| --- | --: | --: | --: | --- |"]
+             "- **Friendship-compact versions**: each state's *cohesion* is the share of its "
+             "people's friendships that stay inside the state, a compactness measured in friendships; these maps raise "
+             "the average cohesion while aiming for no more border (cut unit edges) than today's state lines, 2,491. "
+             "The free version gets there exactly and beats neutral states on cohesion; with today's capitals fixed "
+             "it cannot (each capital must still gather 6.6 million people), and stays near neutral. Today's states "
+             "average 56.6% cohesion, but mostly because the big ones are big.",
+             "",
+             "| Version | Ties kept, raw | Mean state cohesion | Least cohesive state | Border (cut edges) | Largest population gap | Map |",
+             "| --- | --: | --: | --: | --: | --: | --- |"]
     for v, r in res.items():
-        lines.append(f"| {names[v]} | {r['ties_kept_pct']['raw']:.1f}% | {r['ties_kept_pct']['adjusted']:.2f}% | "
+        c = r.get("cohesion_pct", {})
+        lines.append(f"| {names[v]} | {r['ties_kept_pct']['raw']:.1f}% | {c.get('mean', float('nan')):.1f}% | "
+                     f"{c.get('min', float('nan')):.1f}% | {r.get('cut_edges', 0):,} | "
                      f"{r['max_dev_pct']:.2f}% | [{v}.png](sci_states/{v}.png) |")
-    lines += ["", f"Comparison: neutral equal-population states {nq['raw'][1]:.1f}% raw / {nq['adjusted'][1]:.2f}% adjusted; "
-              f"today's states {today['raw']:.1f}% / {today['adjusted']:.2f}%.", ""]
+    lines += ["", f"Comparison: neutral equal-population states {nq['raw'][1]:.1f}% raw / {nq['adjusted'][1]:.2f}% adjusted"
+              + (f", mean cohesion {nq['cohesion'][1]:.1f}%, {nq['cut_edges'][1]:,.0f} cut edges" if "cohesion" in nq else "")
+              + f"; today's states {today['raw']:.1f}% / {today['adjusted']:.2f}%, 2,491 cut edges. Side-by-side pictures of "
+              "today's states, neutral states and the friendship-compact states, coloured by 2020 vote: "
+              "[docs/samples/states.png](samples/states.png).", ""]
     for v in res:
         lines += [f"![{names[v]}](sci_states/{v}.png)", ""]
     lines += ["---", "", "## For AI agents (detailed)", "",
@@ -1160,14 +1214,23 @@ def main(argv=None) -> int:
     free0 = tree_seed(g, k, a.tol, seed=a.seed)
     # neutral comparison: plain ReCom from the free start, no SCI
     ch = Chain(U, free0, k, a.tol, "adjusted", beta=0, seed=a.seed + 5)
-    neutral = {"raw": [], "adjusted": []}
+    neutral = {"raw": [], "adjusted": [], "cut_edges": [], "cohesion": []}
+    sc_raw = Scorer(U["M_raw"], U["region"], U["pop"], k, own=True)
     for i in range(400):
         while not ch.move(sci_trees=False):
             pass
         if (i + 1) % 20 == 0:
             for nm, v in score_labels(U, ch.labels, k).items():
                 neutral[nm].append(v)
+            neutral["cut_edges"].append(ch.cut_edges())
+            neutral["cohesion"].append(100 * float(sc_raw.cohesion(ch.labels).mean()))
     nq = {nm: [round(float(x), 3) for x in np.percentile(v, [5, 50, 95])] for nm, v in neutral.items()}
+    np.save(cenpop.cache_dir() / "sci" / f"neutral_states_{a.seed}.npy", ch.labels)  # one neutral sample, for pictures
+    e_ = U["edges"]
+    today_cut = int(np.count_nonzero(today[e_[:, 0]] != today[e_[:, 1]]))
+    # compact variants may use no more cut edges than today's state lines (neutral ReCom states use far more)
+    max_cut = today_cut
+    print(f"today's states: {today_cut} cut edges; neutral states: {nq['cut_edges'][1]:.0f}")
     print(f"neutral equal-population states (5/50/95%): {nq}")
     # capitals: unit nearest each capital within its state
     caps, cap_names = [], {}
@@ -1179,6 +1242,9 @@ def main(argv=None) -> int:
     caps = np.array(caps)
     for v in a.variants:
         kind, obj = v.split(".")
+        compact = obj == "compact"  # friendship compactness (mean state cohesion, raw SCI) + cut-edge cap
+        mobj = "raw" if compact else obj
+        extra = {"cohesion": True, "max_cut": max_cut} if compact else {}
         t0 = time.perf_counter()
         print(f"{v}:")
         prev = OUT / f"{v}.json"
@@ -1188,13 +1254,13 @@ def main(argv=None) -> int:
             lab = np.full(n, -1, np.int64)
             for s_ in old["states"]:
                 lab[[pos[x] for x in s_["units"].split(",")]] = s_["id"]
-            ch = Chain(U, lab, k, a.tol, obj, capitals=caps if kind == "capitals" else None,
-                       seed=a.seed + 11 + 1000 * old.get("resumed", 0) + 1)
-            print(f"  resumed from {old['ties_kept_pct'][obj]}% ({old['params']['bursts']} bursts before)")
+            ch = Chain(U, lab, k, a.tol, mobj, capitals=caps if kind == "capitals" else None,
+                       seed=a.seed + 11 + 1000 * old.get("resumed", 0) + 1, **extra)
+            print(f"  resumed from {old['ties_kept_pct'][mobj]}% ({old['params']['bursts']} bursts before)")
         elif kind == "free":
-            ch = Chain(U, free0, k, a.tol, obj, seed=a.seed + 11)
+            ch = Chain(U, free0, k, a.tol, mobj, seed=a.seed + 11, **extra)
         else:
-            ch = Chain(U, capital_voronoi(U, caps, k, iters=3000), k, a.tol, obj, capitals=caps, seed=a.seed + 13)
+            ch = Chain(U, capital_voronoi(U, caps, k, iters=3000), k, a.tol, mobj, capitals=caps, seed=a.seed + 13, **extra)
             balance_pairs(ch)
         start = ch.score()
         best = short_bursts(ch, a.bursts, a.burst)
@@ -1202,12 +1268,13 @@ def main(argv=None) -> int:
         assert np.abs(dv).max() <= a.tol + 1e-9
         info = {"title": ("50 states drawn by social connectedness" if kind == "free"
                           else "Today's 50 capitals, borders drawn by social connectedness")
-                + f" ({'distance-adjusted' if obj == 'adjusted' else 'raw'} SCI, equal population)",
+                + (" (friendship-compact: mean state cohesion, no more border than today's states)" if compact
+                   else f" ({'distance-adjusted' if obj == 'adjusted' else 'raw'} SCI, equal population)"),
                 "kind": kind, "objective": obj, "capitals_fixed": kind == "capitals",
                 "resumed": (old.get("resumed", 0) + 1) if a.resume and prev.exists() else 0,
                 "params": {"split": a.split, "tol": a.tol, "bursts": a.bursts + (old["params"]["bursts"] if a.resume and prev.exists() else 0),
                            "burst": a.burst, "seed": a.seed,
-                           "units": n, "water_links": U["water_links"]},
+                           "units": n, "water_links": U["water_links"], **({"max_cut_edges": max_cut} if compact else {})},
                 "start_score": round(start, 3), "neutral_quantiles_5_50_95": nq,
                 "max_dev_pct": round(100 * float(np.abs(dv).max()), 3),
                 "seconds": round(time.perf_counter() - t0, 1)}

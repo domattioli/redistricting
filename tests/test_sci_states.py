@@ -63,3 +63,15 @@ def test_voronoi_split_connected():
             a = sparse.coo_matrix((np.ones(m.sum()), (eu[m], ev[m])), shape=(400, 400))
             sub = np.flatnonzero(part)
             assert connected_components(a.tocsr()[sub][:, sub], directed=False)[0] == 1
+
+
+def test_cohesion_and_cut_cap():
+    U = toy()
+    sc = S.Scorer(U["M_raw"], U["region"], U["pop"], 1)
+    assert np.isclose(sc.cohesion(np.zeros(len(U["pop"]), int))[0], 1.0)  # one state keeps every friendship
+    g = Graph(pop=U["pop"], edges=U["edges"])
+    lab = tree_seed(g, 4, 0.05, seed=3)
+    loose = S.Chain(U, lab, 4, 0.05, "raw", cohesion=True)
+    tight = S.Chain(U, lab, 4, 0.05, "raw", cohesion=True, max_cut=loose.cut_edges() - 10)
+    assert 0 < loose.score() <= 100
+    assert np.isclose(loose.score() - tight.score(), 100 * 10 / (loose.cut_edges() - 10))

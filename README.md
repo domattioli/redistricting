@@ -76,6 +76,6 @@ The plan and status are in [docs/PLAN.md](docs/PLAN.md); the tools are described
 
 ### Social connectedness (SCI), added 2026-11-14
 
-In short: Meta's Social Connectedness Index (how likely people in two counties are to be Facebook friends) is available as a lens. The toys' panel shows how many cross-county friendships each map keeps inside its districts; `docs/SCI_DISTRICTS.md` compares maps drawn to keep those ties together with the neutral maps; `docs/SCI_STATES.md` redraws the country as 50 equal-population states by social ties (free, and keeping today's capitals). The index follows migration, party and race, so none of this is presented as neutral.
+In short: Meta's Social Connectedness Index (how likely people in two counties are to be Facebook friends) is available as a lens. The toys' panel shows how many cross-county friendships each map keeps inside its districts; `docs/SCI_DISTRICTS.md` compares maps drawn to keep those ties together with the neutral maps; `docs/SCI_STATES.md` redraws the country as 50 equal-population states by social ties (free, keeping today's capitals, and friendship-compact: states whose people's friendships stay inside, with no more border than today's states); `docs/samples/` puts today's map, a neutral map and a social-ties map side by side. The index follows migration, party and race, so none of this is presented as neutral.
 
 For agents: `redistricting_addons/sci.py` (data, score), `sci_districts.py` (optimised districts), `sci_states.py` (50 states); details in `redistricting_addons/README.md` and `docs/PLAN.md`.

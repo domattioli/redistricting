@@ -82,3 +82,9 @@ Tests: `python tests/test_ensemble.py` (or `pytest tests/test_ensemble.py`).
 ### sci_districts.py: districts drawn to keep social ties together
 
 `python -m redistricting_addons.sci_districts [--bursts 3000] [--workers 10]` draws, for each multi-district state with SCI data, the congressional map that keeps the most cross-county friendship weight inside districts (short bursts of plain ReCom from the solver's plan, 1% tolerance; distance-adjusted and raw objectives), and places it among the neutral ensembles: Democratic seats per election, cut edges, county splits, ties kept. Writes `site/data/sci/districts/<ST>.<objective>.json` (with the plan) and `docs/SCI_DISTRICTS.md`.
+
+Friendship compactness: `--variants free.compact capitals.compact` score each state by its *cohesion*, the share of its people's friendship weight (raw SCI, pairs within one county included) that stays inside the state, and maximise the mean over states while every cut unit edge above today's state lines (2,491) costs 100 / 2,491 points. Each output records per-state cohesion, the mean and minimum, and its cut edges.
+
+### samples.py: today's map, a neutral map and a social-ties map side by side
+
+`python -m redistricting_addons.samples [--states PA NC TX WI] [--fifty free.compact]` writes `docs/samples/<ST>.png` (official map, a neutral county-weighted ReCom map from the ensemble chain, and the compact social-ties map, districts filled by 2020 Democratic share with outlines, seat counts for 2016/2020/2024 in the titles) and `docs/samples/states.png` (today's 50 states, a neutral equal-population ReCom sample, and the chosen social-ties variant, with the number of states voting Democratic in 2020).
