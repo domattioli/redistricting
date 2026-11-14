@@ -1,0 +1,52 @@
+{
+ "v": 1,
+ "abbr": "RI",
+ "plan": "solver",
+ "districts": 2,
+ "blocks": 25649,
+ "people": 1097379,
+ "ideal": 548689.5,
+ "source": "TIGER/Line 2020 tl_2020_44_tabblock20 (sha256 79d10c9dfec1e3e0962e13d6295b53856db286a156d9937d3737adb0c542f35b); POP20; rook adjacency; 1 water links join islands to their nearest block",
+ "block_edges": 66098,
+ "water_links": 1,
+ "before": {
+  "max_abs_persons": 471,
+  "range_persons": 941,
+  "max_abs_pct": 0.0857,
+  "pieces": 2,
+  "cut_block_edges": 273
+ },
+ "after_repair": {
+  "max_abs_persons": 471,
+  "range_persons": 941,
+  "max_abs_pct": 0.0857,
+  "pieces": 2
+ },
+ "after": {
+  "max_abs_persons": 1,
+  "range_persons": 1,
+  "max_abs_pct": 0.0001,
+  "pieces": 2,
+  "cut_block_edges": 279
+ },
+ "repair": {
+  "blocks_moved": 0,
+  "people_moved": 0
+ },
+ "balance": {
+  "blocks_moved": 2,
+  "people_moved": 470
+ },
+ "blocks_changed_from_block_group_plan": 2,
+ "people_changed_from_block_group_plan": 470,
+ "district_populations": [
+  548690,
+  548689
+ ],
+ "seconds": {
+  "download_and_read": 0.3,
+  "graph": 1.9,
+  "refine": 0.1
+ },
+ "bef": "RI.solver.bef.csv.gz"
+}

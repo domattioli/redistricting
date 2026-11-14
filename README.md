@@ -52,3 +52,34 @@ Check the site: `python scripts/verify_site.py` (needs Playwright with Chromium;
 
 - Write-up: [TBD]
 - Origin: research in the SegmentAnyMesh repo (`research/redistricting_*`, `redistricting/`)
+
+## Additions in this fork (neutral baselines, true borders, block level)
+
+### In short (for people)
+
+This fork adds tools that judge a map against **thousands of neutral maps** instead of one "fair" map, following Moon Duchin and Daryl DeFord's work. Everything is added beside the original; nothing existing was changed. In plain terms:
+
+- **A neutral process is not a promise of proportional seats.** Where voters live decides that. In Massachusetts, for example, every possible plan gives Republicans 0 of 9 seats ([Duchin et al. 2018](https://arxiv.org/abs/1810.09051)). The toys therefore now show where a map sits among 10,000 neutral maps (the "Neutral baseline" panel), not only how it compares with the solver's map.
+- **True borders.** The toys' neighbour graph is a triangulation of block-group centres; only about three quarters of its links are real shared borders. The fork adds the Census shared-border graph as an option and reports how much results change ([docs/GRAPH_SENSITIVITY.md](docs/GRAPH_SENSITIVITY.md)).
+- **Within one person.** An optional step refines a block-group plan to census blocks, so districts differ by at most one person (pilots: Pennsylvania, Rhode Island, New Hampshire).
+- **Runs here.** `pip install -e ".[districts]"` now works, and `python -m redistricting_addons.generate --state PA` runs the solver with the official Census population file when the private `research/` copy is missing.
+
+The plan and status are in [docs/PLAN.md](docs/PLAN.md); the tools are described in [redistricting_addons/README.md](redistricting_addons/README.md).
+
+### For AI agents (detailed)
+
+- **Where things live.** `scripts/sync_from_research.py` mirrors `redistricting/` and `site/data/*.json` from SegmentAnyMesh and overwrites the three toy pages, so new code is in `redistricting_addons/`, `site/addons/`, `site/data/ensembles/`, `site/data/graphs/`, `site/data/blocks/`, `tests/` (new files) and `docs/`. The only edits to synced files are one `<script>` line per page and one line in Fair Lines publishing its state (`window.__RD_PAGE`).
+- **Random versus deterministic starts.** The browser's Fair Lines "Draw it fresh" starts from random population-weighted centres (`randomCenters`), so runs differ slightly; the Python package defaults to deterministic recursive coordinate bisection (`--init rcb`, seed = state FIPS) and only uses random starts with `--init random`.
+- **Results table and research links.** The "Results" table, `research/...` paths and figures referenced by `docs/METHOD.md` come from the SegmentAnyMesh repository and are not reproduced here. `python -m redistricting_addons.generate` reproduces table rows (checked: New Hampshire matches exactly).
+- **Population file.** `redistricting.data` pins the hash of a private copy of `CenPop2020_Mean_BG.txt`. The official census.gov file has the same rows and populations but different bytes; `redistricting_addons/cenpop.py` downloads and pins it, `generate.py` passes it with `--cenpop`, and `tests/conftest.py` points the original tests at it when the private copy is missing (all tests pass on a fresh clone).
+- **Commands.** `python -m redistricting_addons.batch` (neutral baselines, add `--variants plain-census county20-census` for the Census graph), `python -m redistricting_addons.graphs` (shared-border graphs), `python -m redistricting_addons.graph_report` (sensitivity report), `python -m redistricting_addons.blocks --state PA` (block-level refinement), `python -m redistricting_addons.regions_votes`, `pytest tests`.
+
+### Social connectedness (SCI), added 2026-11-14
+
+In short: Meta's Social Connectedness Index (how likely people in two counties are to be Facebook friends) is available as a lens. The toys' panel shows how many cross-county friendships each map keeps inside its districts; `docs/SCI_DISTRICTS.md` compares maps drawn to keep those ties together with the neutral maps; `docs/SCI_STATES.md` redraws the country as 50 equal-population states by social ties (free, keeping today's capitals, and friendship-compact: states whose people's friendships stay inside, with no more border than today's states); `docs/samples/` puts today's map, a neutral map and a social-ties map side by side. The index follows migration, party and race, so none of this is presented as neutral.
+
+For agents: `redistricting_addons/sci.py` (data, score), `sci_districts.py` (optimised districts), `sci_states.py` (50 states); details in `redistricting_addons/README.md` and `docs/PLAN.md`.
+
+**Highlights:** [docs/HIGHLIGHTS.md](docs/HIGHLIGHTS.md) collects the 16 most telling pictures from this work (official maps against neutral maps, one state drawn six ways, the 50 states redrawn by social ties), each with a short caption.
+
+**Interactive:** `site/sci-states/` shows the 50-state maps (pick a version, click a state); the Draw toy has a friendship-ties slider (ZIP-code social connectedness, `docs/SCI_ZCTA.md`).

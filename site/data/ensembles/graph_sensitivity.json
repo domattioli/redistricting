@@ -1,0 +1,6152 @@
+[
+ {
+  "abbr": "AK",
+  "districts": 1,
+  "graph": {
+   "units": 504,
+   "census_edges": 1248,
+   "site_edges": 1331,
+   "site_edges_that_share_a_border_pct": 73.0,
+   "water_links": 5,
+   "people_on_water_linked_units": 11303
+  },
+  "variants": {}
+ },
+ {
+  "abbr": "AL",
+  "districts": 7,
+  "graph": {
+   "units": 3925,
+   "census_edges": 10892,
+   "site_edges": 11693,
+   "site_edges_that_share_a_border_pct": 78.1,
+   "water_links": 3,
+   "people_on_water_linked_units": 4684
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.053,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 74.6,
+       "more": 0.4
+      },
+      "official_vs_census": {
+       "fewer": 69.3,
+       "more": 1.4
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.021,
+      "median_seats": {
+       "site": 0,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 50.3,
+       "more": 1.4
+      },
+      "official_vs_census": {
+       "fewer": 49.3,
+       "more": 3.5
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.011,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 69.6,
+       "more": 0.1
+      },
+      "official_vs_census": {
+       "fewer": 68.4,
+       "more": 0.3
+      }
+     }
+    },
+    "max_seats_tv": 0.053,
+    "median_county_splits": {
+     "site": 35.0,
+     "census": 31.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.067,
+      "median_seats": {
+       "site": 0,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 54.8,
+       "more": 1.1
+      },
+      "official_vs_census": {
+       "fewer": 48.1,
+       "more": 1.6
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.047,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 39.2,
+       "more": 2.1
+      },
+      "official_vs_census": {
+       "fewer": 34.5,
+       "more": 2.7
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.065,
+      "median_seats": {
+       "site": 0,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 52.9,
+       "more": 0.3
+      },
+      "official_vs_census": {
+       "fewer": 46.4,
+       "more": 0.4
+      }
+     }
+    },
+    "max_seats_tv": 0.067,
+    "median_county_splits": {
+     "site": 8.0,
+     "census": 8.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": true,
+    "census": true
+   }
+  }
+ },
+ {
+  "abbr": "AR",
+  "districts": 4,
+  "graph": {
+   "units": 2294,
+   "census_edges": 6358,
+   "site_edges": 6826,
+   "site_edges_that_share_a_border_pct": 77.3,
+   "water_links": 0,
+   "people_on_water_linked_units": 0
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 3.0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 3.0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.003,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 4.7
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 4.5
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.003,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 1.1
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0.9
+      }
+     }
+    },
+    "max_seats_tv": 0.003,
+    "median_county_splits": {
+     "site": 25.0,
+     "census": 21.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.004,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 4.2
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 3.8
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.004,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 6.4
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 6.0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.004,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 1.8
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 1.4
+      }
+     }
+    },
+    "max_seats_tv": 0.004,
+    "median_county_splits": {
+     "site": 4.0,
+     "census": 3.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": true
+   },
+   "official": {
+    "site": true,
+    "census": false
+   }
+  }
+ },
+ {
+  "abbr": "AZ",
+  "districts": 9,
+  "graph": {
+   "units": 4773,
+   "census_edges": 12549,
+   "site_edges": 14268,
+   "site_edges_that_share_a_border_pct": 73.5,
+   "water_links": 0,
+   "people_on_water_linked_units": 0
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.012,
+      "median_seats": {
+       "site": 4,
+       "census": 4
+      },
+      "official_seats": 3,
+      "official_vs_site": {
+       "fewer": 2.5,
+       "more": 60.8
+      },
+      "official_vs_census": {
+       "fewer": 2.2,
+       "more": 61.8
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.032,
+      "median_seats": {
+       "site": 4,
+       "census": 4
+      },
+      "official_seats": 5,
+      "official_vs_site": {
+       "fewer": 54.9,
+       "more": 8.2
+      },
+      "official_vs_census": {
+       "fewer": 53.3,
+       "more": 6.7
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.027,
+      "median_seats": {
+       "site": 4,
+       "census": 4
+      },
+      "official_seats": 3,
+      "official_vs_site": {
+       "fewer": 3.5,
+       "more": 50.4
+      },
+      "official_vs_census": {
+       "fewer": 2.9,
+       "more": 53.1
+      }
+     }
+    },
+    "max_seats_tv": 0.032,
+    "median_county_splits": {
+     "site": 9.0,
+     "census": 8.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.017,
+      "median_seats": {
+       "site": 4,
+       "census": 4
+      },
+      "official_seats": 3,
+      "official_vs_site": {
+       "fewer": 2.5,
+       "more": 62.0
+      },
+      "official_vs_census": {
+       "fewer": 2.5,
+       "more": 63.4
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.03,
+      "median_seats": {
+       "site": 4,
+       "census": 4
+      },
+      "official_seats": 5,
+      "official_vs_site": {
+       "fewer": 56.3,
+       "more": 7.0
+      },
+      "official_vs_census": {
+       "fewer": 56.0,
+       "more": 5.2
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.024,
+      "median_seats": {
+       "site": 3,
+       "census": 4
+      },
+      "official_seats": 3,
+      "official_vs_site": {
+       "fewer": 3.7,
+       "more": 49.7
+      },
+      "official_vs_census": {
+       "fewer": 3.3,
+       "more": 52.1
+      }
+     }
+    },
+    "max_seats_tv": 0.03,
+    "median_county_splits": {
+     "site": 5.0,
+     "census": 4.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": false,
+    "census": false
+   }
+  }
+ },
+ {
+  "abbr": "CA",
+  "districts": 52,
+  "graph": {
+   "units": 25607,
+   "census_edges": 68892,
+   "site_edges": 76455,
+   "site_edges_that_share_a_border_pct": 74.6,
+   "water_links": 28,
+   "people_on_water_linked_units": 26089
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.019,
+      "median_seats": {
+       "site": 44,
+       "census": 44
+      },
+      "official_seats": 47,
+      "official_vs_site": {
+       "fewer": 97.3,
+       "more": 0.1
+      },
+      "official_vs_census": {
+       "fewer": 97.9,
+       "more": 0.1
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.048,
+      "median_seats": {
+       "site": 46,
+       "census": 46
+      },
+      "official_seats": 48,
+      "official_vs_site": {
+       "fewer": 94.5,
+       "more": 0.6
+      },
+      "official_vs_census": {
+       "fewer": 95.9,
+       "more": 0.4
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.015,
+      "median_seats": {
+       "site": 40,
+       "census": 40
+      },
+      "official_seats": 47,
+      "official_vs_site": {
+       "fewer": 100.0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 100.0,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.048,
+    "median_county_splits": {
+     "site": 43.0,
+     "census": 41.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.048,
+      "median_seats": {
+       "site": 44,
+       "census": 44
+      },
+      "official_seats": 47,
+      "official_vs_site": {
+       "fewer": 98.2,
+       "more": 0.1
+      },
+      "official_vs_census": {
+       "fewer": 99.3,
+       "more": 0.0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.088,
+      "median_seats": {
+       "site": 45,
+       "census": 45
+      },
+      "official_seats": 48,
+      "official_vs_site": {
+       "fewer": 97.9,
+       "more": 0.1
+      },
+      "official_vs_census": {
+       "fewer": 98.9,
+       "more": 0.1
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.04,
+      "median_seats": {
+       "site": 40,
+       "census": 40
+      },
+      "official_seats": 47,
+      "official_vs_site": {
+       "fewer": 100.0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 100.0,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.088,
+    "median_county_splits": {
+     "site": 27.0,
+     "census": 26.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": false,
+    "census": false
+   }
+  }
+ },
+ {
+  "abbr": "CO",
+  "districts": 8,
+  "graph": {
+   "units": 4058,
+   "census_edges": 11005,
+   "site_edges": 12156,
+   "site_edges_that_share_a_border_pct": 74.1,
+   "water_links": 0,
+   "people_on_water_linked_units": 0
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.063,
+      "median_seats": {
+       "site": 4,
+       "census": 4
+      },
+      "official_seats": 4,
+      "official_vs_site": {
+       "fewer": 8.9,
+       "more": 25.4
+      },
+      "official_vs_census": {
+       "fewer": 7.1,
+       "more": 31.6
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.048,
+      "median_seats": {
+       "site": 5,
+       "census": 5
+      },
+      "official_seats": 5,
+      "official_vs_site": {
+       "fewer": 16.0,
+       "more": 23.8
+      },
+      "official_vs_census": {
+       "fewer": 11.3,
+       "more": 23.6
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.059,
+      "median_seats": {
+       "site": 5,
+       "census": 5
+      },
+      "official_seats": 4,
+      "official_vs_site": {
+       "fewer": 0.1,
+       "more": 76.6
+      },
+      "official_vs_census": {
+       "fewer": 0.1,
+       "more": 82.5
+      }
+     }
+    },
+    "max_seats_tv": 0.063,
+    "median_county_splits": {
+     "site": 23.0,
+     "census": 19.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.017,
+      "median_seats": {
+       "site": 4,
+       "census": 4
+      },
+      "official_seats": 4,
+      "official_vs_site": {
+       "fewer": 6.6,
+       "more": 5.2
+      },
+      "official_vs_census": {
+       "fewer": 8.3,
+       "more": 4.1
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.032,
+      "median_seats": {
+       "site": 5,
+       "census": 5
+      },
+      "official_seats": 5,
+      "official_vs_site": {
+       "fewer": 42.9,
+       "more": 10.3
+      },
+      "official_vs_census": {
+       "fewer": 39.7,
+       "more": 11.1
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.034,
+      "median_seats": {
+       "site": 4,
+       "census": 4
+      },
+      "official_seats": 4,
+      "official_vs_site": {
+       "fewer": 0.1,
+       "more": 44.7
+      },
+      "official_vs_census": {
+       "fewer": 0.3,
+       "more": 41.3
+      }
+     }
+    },
+    "max_seats_tv": 0.034,
+    "median_county_splits": {
+     "site": 9.0,
+     "census": 8.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": false,
+    "census": false
+   }
+  }
+ },
+ {
+  "abbr": "CT",
+  "districts": 5,
+  "graph": {
+   "units": 2716,
+   "census_edges": 7384,
+   "site_edges": 8063,
+   "site_edges_that_share_a_border_pct": 79.4,
+   "water_links": 4,
+   "people_on_water_linked_units": 4276
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.011,
+      "median_seats": {
+       "site": 5,
+       "census": 5
+      },
+      "official_seats": 5,
+      "official_vs_site": {
+       "fewer": 47.2,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 48.3,
+       "more": 0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 5,
+       "census": 5
+      },
+      "official_seats": 5,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0.0,
+       "more": 0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.022,
+      "median_seats": {
+       "site": 5,
+       "census": 5
+      },
+      "official_seats": 5,
+      "official_vs_site": {
+       "fewer": 27.0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 29.2,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.022,
+    "median_county_splits": {
+     "site": 7.0,
+     "census": 6.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.016,
+      "median_seats": {
+       "site": 4,
+       "census": 4
+      },
+      "official_seats": 5,
+      "official_vs_site": {
+       "fewer": 58.3,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 56.7,
+       "more": 0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 5,
+       "census": 5
+      },
+      "official_seats": 5,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.018,
+      "median_seats": {
+       "site": 5,
+       "census": 5
+      },
+      "official_seats": 5,
+      "official_vs_site": {
+       "fewer": 37.0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 35.2,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.018,
+    "median_county_splits": {
+     "site": 4.0,
+     "census": 4.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": true
+   },
+   "official": {
+    "site": true,
+    "census": true
+   }
+  }
+ },
+ {
+  "abbr": "DE",
+  "districts": 1,
+  "graph": {
+   "units": 706,
+   "census_edges": 1848,
+   "site_edges": 2058,
+   "site_edges_that_share_a_border_pct": 75.3,
+   "water_links": 3,
+   "people_on_water_linked_units": 2563
+  },
+  "variants": {}
+ },
+ {
+  "abbr": "FL",
+  "districts": 28,
+  "graph": {
+   "units": 13388,
+   "census_edges": 35678,
+   "site_edges": 39593,
+   "site_edges_that_share_a_border_pct": 75.1,
+   "water_links": 47,
+   "people_on_water_linked_units": 53145
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.053,
+      "median_seats": {
+       "site": 13,
+       "census": 13
+      },
+      "official_seats": 9,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 100.0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 100.0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.02,
+      "median_seats": {
+       "site": 12,
+       "census": 12
+      },
+      "official_seats": 8,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 100.0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 100.0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.072,
+      "median_seats": {
+       "site": 7,
+       "census": 7
+      },
+      "official_seats": 4,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 99.9
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 99.8
+      }
+     }
+    },
+    "max_seats_tv": 0.072,
+    "median_county_splits": {
+     "site": 41.0,
+     "census": 38.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.209,
+      "median_seats": {
+       "site": 14,
+       "census": 13
+      },
+      "official_seats": 9,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 100.0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 100.0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.23,
+      "median_seats": {
+       "site": 13,
+       "census": 12
+      },
+      "official_seats": 8,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 100.0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 100.0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.048,
+      "median_seats": {
+       "site": 8,
+       "census": 8
+      },
+      "official_seats": 4,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 100.0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 100.0
+      }
+     }
+    },
+    "max_seats_tv": 0.23,
+    "median_county_splits": {
+     "site": 23.0,
+     "census": 22.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": false,
+    "census": false
+   }
+  }
+ },
+ {
+  "abbr": "GA",
+  "districts": 14,
+  "graph": {
+   "units": 7446,
+   "census_edges": 20518,
+   "site_edges": 22232,
+   "site_edges_that_share_a_border_pct": 77.9,
+   "water_links": 5,
+   "people_on_water_linked_units": 4596
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.018,
+      "median_seats": {
+       "site": 4,
+       "census": 4
+      },
+      "official_seats": 5,
+      "official_vs_site": {
+       "fewer": 58.8,
+       "more": 4.7
+      },
+      "official_vs_census": {
+       "fewer": 60.5,
+       "more": 3.8
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.02,
+      "median_seats": {
+       "site": 5,
+       "census": 5
+      },
+      "official_seats": 5,
+      "official_vs_site": {
+       "fewer": 12.0,
+       "more": 38.7
+      },
+      "official_vs_census": {
+       "fewer": 11.2,
+       "more": 40.7
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.019,
+      "median_seats": {
+       "site": 5,
+       "census": 5
+      },
+      "official_seats": 5,
+      "official_vs_site": {
+       "fewer": 16.1,
+       "more": 30.1
+      },
+      "official_vs_census": {
+       "fewer": 15.7,
+       "more": 28.7
+      }
+     }
+    },
+    "max_seats_tv": 0.02,
+    "median_county_splits": {
+     "site": 67.0,
+     "census": 62.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.033,
+      "median_seats": {
+       "site": 5,
+       "census": 5
+      },
+      "official_seats": 5,
+      "official_vs_site": {
+       "fewer": 43.9,
+       "more": 12.0
+      },
+      "official_vs_census": {
+       "fewer": 47.1,
+       "more": 9.9
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.014,
+      "median_seats": {
+       "site": 6,
+       "census": 6
+      },
+      "official_seats": 5,
+      "official_vs_site": {
+       "fewer": 5.5,
+       "more": 52.2
+      },
+      "official_vs_census": {
+       "fewer": 4.9,
+       "more": 53.3
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.009,
+      "median_seats": {
+       "site": 5,
+       "census": 5
+      },
+      "official_seats": 5,
+      "official_vs_site": {
+       "fewer": 6.8,
+       "more": 43.5
+      },
+      "official_vs_census": {
+       "fewer": 7.0,
+       "more": 43.8
+      }
+     }
+    },
+    "max_seats_tv": 0.033,
+    "median_county_splits": {
+     "site": 17.0,
+     "census": 16.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": true,
+    "census": false
+   }
+  }
+ },
+ {
+  "abbr": "HI",
+  "districts": 2,
+  "graph": {
+   "units": 1083,
+   "census_edges": 2711,
+   "site_edges": 3044,
+   "site_edges_that_share_a_border_pct": 67.9,
+   "water_links": 34,
+   "people_on_water_linked_units": 40104
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.0,
+    "median_county_splits": {
+     "site": 1.0,
+     "census": 1.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.0,
+    "median_county_splits": {
+     "site": 1.0,
+     "census": 1.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": true
+   },
+   "official": {
+    "site": false,
+    "census": false
+   }
+  }
+ },
+ {
+  "abbr": "IA",
+  "districts": 4,
+  "graph": {
+   "units": 2703,
+   "census_edges": 7326,
+   "site_edges": 8026,
+   "site_edges_that_share_a_border_pct": 74.9,
+   "water_links": 0,
+   "people_on_water_linked_units": 0
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.11,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 87.5
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 81.4
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.05,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 95.1
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 93.6
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.089,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 65.7
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 56.7
+      }
+     }
+    },
+    "max_seats_tv": 0.11,
+    "median_county_splits": {
+     "site": 29.0,
+     "census": 24.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.043,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 83.9
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 80.8
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.012,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 94.7
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 94.3
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.054,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 61.6
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 56.2
+      }
+     }
+    },
+    "max_seats_tv": 0.054,
+    "median_county_splits": {
+     "site": 4.0,
+     "census": 4.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": true,
+    "census": true
+   }
+  }
+ },
+ {
+  "abbr": "ID",
+  "districts": 2,
+  "graph": {
+   "units": 1284,
+   "census_edges": 3454,
+   "site_edges": 3812,
+   "site_edges_that_share_a_border_pct": 76.1,
+   "water_links": 0,
+   "people_on_water_linked_units": 0
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.0,
+    "median_county_splits": {
+     "site": 6.0,
+     "census": 5.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.0,
+    "median_county_splits": {
+     "site": 1.0,
+     "census": 1.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": true
+   },
+   "official": {
+    "site": true,
+    "census": true
+   }
+  }
+ },
+ {
+  "abbr": "IL",
+  "districts": 17,
+  "graph": {
+   "units": 9898,
+   "census_edges": 26772,
+   "site_edges": 29568,
+   "site_edges_that_share_a_border_pct": 76.2,
+   "water_links": 2,
+   "people_on_water_linked_units": 1733
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.08,
+      "median_seats": {
+       "site": 11,
+       "census": 11
+      },
+      "official_seats": 14,
+      "official_vs_site": {
+       "fewer": 100.0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 100.0,
+       "more": 0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.074,
+      "median_seats": {
+       "site": 11,
+       "census": 11
+      },
+      "official_seats": 14,
+      "official_vs_site": {
+       "fewer": 100.0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 100.0,
+       "more": 0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.1,
+      "median_seats": {
+       "site": 11,
+       "census": 11
+      },
+      "official_seats": 14,
+      "official_vs_site": {
+       "fewer": 100.0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 100.0,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.1,
+    "median_county_splits": {
+     "site": 45.0,
+     "census": 42.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.053,
+      "median_seats": {
+       "site": 11,
+       "census": 11
+      },
+      "official_seats": 14,
+      "official_vs_site": {
+       "fewer": 100.0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 100.0,
+       "more": 0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.029,
+      "median_seats": {
+       "site": 11,
+       "census": 11
+      },
+      "official_seats": 14,
+      "official_vs_site": {
+       "fewer": 100.0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 100.0,
+       "more": 0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.033,
+      "median_seats": {
+       "site": 11,
+       "census": 11
+      },
+      "official_seats": 14,
+      "official_vs_site": {
+       "fewer": 100.0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 100.0,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.053,
+    "median_county_splits": {
+     "site": 13.0,
+     "census": 12.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": false,
+    "census": false
+   }
+  }
+ },
+ {
+  "abbr": "IN",
+  "districts": 9,
+  "graph": {
+   "units": 5290,
+   "census_edges": 14467,
+   "site_edges": 15766,
+   "site_edges_that_share_a_border_pct": 77.6,
+   "water_links": 3,
+   "people_on_water_linked_units": 3224
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.042,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 11.8,
+       "more": 4.7
+      },
+      "official_vs_census": {
+       "fewer": 8.0,
+       "more": 4.2
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.063,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 8.8,
+       "more": 23.3
+      },
+      "official_vs_census": {
+       "fewer": 3.7,
+       "more": 22.1
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.126,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 70.6,
+       "more": 2.2
+      },
+      "official_vs_census": {
+       "fewer": 58.0,
+       "more": 4.9
+      }
+     }
+    },
+    "max_seats_tv": 0.126,
+    "median_county_splits": {
+     "site": 47.0,
+     "census": 43.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.023,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 7.1,
+       "more": 7.3
+      },
+      "official_vs_census": {
+       "fewer": 6.6,
+       "more": 5.5
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.045,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 4.1,
+       "more": 29.4
+      },
+      "official_vs_census": {
+       "fewer": 2.8,
+       "more": 26.2
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.084,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 65.8,
+       "more": 2.7
+      },
+      "official_vs_census": {
+       "fewer": 57.4,
+       "more": 5.6
+      }
+     }
+    },
+    "max_seats_tv": 0.084,
+    "median_county_splits": {
+     "site": 11.0,
+     "census": 11.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": true
+   },
+   "official": {
+    "site": true,
+    "census": true
+   }
+  }
+ },
+ {
+  "abbr": "KS",
+  "districts": 4,
+  "graph": {
+   "units": 2461,
+   "census_edges": 6492,
+   "site_edges": 7353,
+   "site_edges_that_share_a_border_pct": 73.7,
+   "water_links": 0,
+   "people_on_water_linked_units": 0
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.218,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 60.1
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 81.9
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.015,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 1.6,
+       "more": 2.7
+      },
+      "official_vs_census": {
+       "fewer": 0.1,
+       "more": 3.2
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.063,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 6.8,
+       "more": 0.3
+      },
+      "official_vs_census": {
+       "fewer": 0.5,
+       "more": 0.3
+      }
+     }
+    },
+    "max_seats_tv": 0.218,
+    "median_county_splits": {
+     "site": 24.0,
+     "census": 17.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.095,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 58.1
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 67.5
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.032,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 1.5,
+       "more": 5.5
+      },
+      "official_vs_census": {
+       "fewer": 0.4,
+       "more": 8.7
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.037,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 6.4,
+       "more": 0.4
+      },
+      "official_vs_census": {
+       "fewer": 2.7,
+       "more": 0.8
+      }
+     }
+    },
+    "max_seats_tv": 0.095,
+    "median_county_splits": {
+     "site": 4.0,
+     "census": 3.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": true,
+    "census": false
+   }
+  }
+ },
+ {
+  "abbr": "KY",
+  "districts": 6,
+  "graph": {
+   "units": 3581,
+   "census_edges": 9900,
+   "site_edges": 10612,
+   "site_edges_that_share_a_border_pct": 79.4,
+   "water_links": 0,
+   "people_on_water_linked_units": 0
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.016,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 7.9,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 6.3,
+       "more": 0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.011,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 3.6,
+       "more": 0.2
+      },
+      "official_vs_census": {
+       "fewer": 2.5,
+       "more": 0.4
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.015,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 7.2,
+       "more": 0.0
+      },
+      "official_vs_census": {
+       "fewer": 5.8,
+       "more": 0.0
+      }
+     }
+    },
+    "max_seats_tv": 0.016,
+    "median_county_splits": {
+     "site": 36.0,
+     "census": 33.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.018,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 7.5,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 5.7,
+       "more": 0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.01,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 3.5,
+       "more": 0.5
+      },
+      "official_vs_census": {
+       "fewer": 2.6,
+       "more": 0.4
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.019,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 6.9,
+       "more": 0.0
+      },
+      "official_vs_census": {
+       "fewer": 5.0,
+       "more": 0.0
+      }
+     }
+    },
+    "max_seats_tv": 0.019,
+    "median_county_splits": {
+     "site": 6.0,
+     "census": 6.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": true,
+    "census": true
+   }
+  }
+ },
+ {
+  "abbr": "LA",
+  "districts": 6,
+  "graph": {
+   "units": 4294,
+   "census_edges": 11846,
+   "site_edges": 12779,
+   "site_edges_that_share_a_border_pct": 76.1,
+   "water_links": 10,
+   "people_on_water_linked_units": 4902
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.047,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 25.1,
+       "more": 0.0
+      },
+      "official_vs_census": {
+       "fewer": 20.4,
+       "more": 0.2
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.038,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 18.7,
+       "more": 0.1
+      },
+      "official_vs_census": {
+       "fewer": 14.9,
+       "more": 0.3
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.056,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 27.4,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 21.8,
+       "more": 0.1
+      }
+     }
+    },
+    "max_seats_tv": 0.056,
+    "median_county_splits": {
+     "site": 31.0,
+     "census": 27.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.008,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 10.0,
+       "more": 0.1
+      },
+      "official_vs_census": {
+       "fewer": 10.7,
+       "more": 0.2
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.006,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 7.8,
+       "more": 1.1
+      },
+      "official_vs_census": {
+       "fewer": 8.3,
+       "more": 1.1
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.016,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 11.0,
+       "more": 0.0
+      },
+      "official_vs_census": {
+       "fewer": 12.7,
+       "more": 0.0
+      }
+     }
+    },
+    "max_seats_tv": 0.016,
+    "median_county_splits": {
+     "site": 6.0,
+     "census": 6.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": true
+   },
+   "official": {
+    "site": false,
+    "census": false
+   }
+  }
+ },
+ {
+  "abbr": "MA",
+  "districts": 9,
+  "graph": {
+   "units": 5116,
+   "census_edges": 13947,
+   "site_edges": 15152,
+   "site_edges_that_share_a_border_pct": 77.1,
+   "water_links": 11,
+   "people_on_water_linked_units": 9289
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 9,
+       "census": 9
+      },
+      "official_seats": 9,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 9,
+       "census": 9
+      },
+      "official_seats": 9,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.001,
+      "median_seats": {
+       "site": 9,
+       "census": 9
+      },
+      "official_seats": 9,
+      "official_vs_site": {
+       "fewer": 0.0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0.1,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.001,
+    "median_county_splits": {
+     "site": 10.0,
+     "census": 10.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 9,
+       "census": 9
+      },
+      "official_seats": 9,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 9,
+       "census": 9
+      },
+      "official_seats": 9,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.001,
+      "median_seats": {
+       "site": 9,
+       "census": 9
+      },
+      "official_seats": 9,
+      "official_vs_site": {
+       "fewer": 0.2,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0.1,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.001,
+    "median_county_splits": {
+     "site": 7.0,
+     "census": 8.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": true,
+    "census": false
+   }
+  }
+ },
+ {
+  "abbr": "MD",
+  "districts": 8,
+  "graph": {
+   "units": 4079,
+   "census_edges": 10925,
+   "site_edges": 12038,
+   "site_edges_that_share_a_border_pct": 75.1,
+   "water_links": 10,
+   "people_on_water_linked_units": 10877
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.14,
+      "median_seats": {
+       "site": 6,
+       "census": 6
+      },
+      "official_seats": 7,
+      "official_vs_site": {
+       "fewer": 71.0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 84.9,
+       "more": 0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.081,
+      "median_seats": {
+       "site": 7,
+       "census": 7
+      },
+      "official_seats": 7,
+      "official_vs_site": {
+       "fewer": 39.6,
+       "more": 0.1
+      },
+      "official_vs_census": {
+       "fewer": 47.7,
+       "more": 0.0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.129,
+      "median_seats": {
+       "site": 7,
+       "census": 6
+      },
+      "official_seats": 7,
+      "official_vs_site": {
+       "fewer": 48.8,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 61.7,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.14,
+    "median_county_splits": {
+     "site": 10.0,
+     "census": 9.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.065,
+      "median_seats": {
+       "site": 6,
+       "census": 6
+      },
+      "official_seats": 7,
+      "official_vs_site": {
+       "fewer": 64.4,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 69.5,
+       "more": 0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.191,
+      "median_seats": {
+       "site": 7,
+       "census": 7
+      },
+      "official_seats": 7,
+      "official_vs_site": {
+       "fewer": 26.6,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 45.7,
+       "more": 0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.156,
+      "median_seats": {
+       "site": 7,
+       "census": 7
+      },
+      "official_seats": 7,
+      "official_vs_site": {
+       "fewer": 30.2,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 45.8,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.191,
+    "median_county_splits": {
+     "site": 6.0,
+     "census": 5.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": true,
+    "census": true
+   }
+  }
+ },
+ {
+  "abbr": "ME",
+  "districts": 2,
+  "graph": {
+   "units": 1184,
+   "census_edges": 3125,
+   "site_edges": 3420,
+   "site_edges_that_share_a_border_pct": 77.3,
+   "water_links": 16,
+   "people_on_water_linked_units": 15820
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.018,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 3.0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 1.3
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.037,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 18.8
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 15.1
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.047,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 9.5
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 4.7
+      }
+     }
+    },
+    "max_seats_tv": 0.047,
+    "median_county_splits": {
+     "site": 6.0,
+     "census": 5.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.001,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0.3
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0.2
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.007,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 7.3
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 6.6
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.003,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0.7
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0.4
+      }
+     }
+    },
+    "max_seats_tv": 0.007,
+    "median_county_splits": {
+     "site": 1.0,
+     "census": 1.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": false,
+    "census": false
+   }
+  }
+ },
+ {
+  "abbr": "MI",
+  "districts": 13,
+  "graph": {
+   "units": 8386,
+   "census_edges": 22034,
+   "site_edges": 24739,
+   "site_edges_that_share_a_border_pct": 77.1,
+   "water_links": 50,
+   "people_on_water_linked_units": 37689
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.025,
+      "median_seats": {
+       "site": 5,
+       "census": 5
+      },
+      "official_seats": 5,
+      "official_vs_site": {
+       "fewer": 31.9,
+       "more": 19.4
+      },
+      "official_vs_census": {
+       "fewer": 34.1,
+       "more": 17.0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.028,
+      "median_seats": {
+       "site": 6,
+       "census": 6
+      },
+      "official_seats": 7,
+      "official_vs_site": {
+       "fewer": 74.7,
+       "more": 3.3
+      },
+      "official_vs_census": {
+       "fewer": 77.5,
+       "more": 2.3
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.015,
+      "median_seats": {
+       "site": 5,
+       "census": 5
+      },
+      "official_seats": 5,
+      "official_vs_site": {
+       "fewer": 27.3,
+       "more": 28.0
+      },
+      "official_vs_census": {
+       "fewer": 28.0,
+       "more": 26.6
+      }
+     }
+    },
+    "max_seats_tv": 0.028,
+    "median_county_splits": {
+     "site": 36.0,
+     "census": 35.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.098,
+      "median_seats": {
+       "site": 5,
+       "census": 5
+      },
+      "official_seats": 5,
+      "official_vs_site": {
+       "fewer": 46.6,
+       "more": 11.4
+      },
+      "official_vs_census": {
+       "fewer": 37.0,
+       "more": 14.0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.099,
+      "median_seats": {
+       "site": 6,
+       "census": 6
+      },
+      "official_seats": 7,
+      "official_vs_site": {
+       "fewer": 71.7,
+       "more": 3.3
+      },
+      "official_vs_census": {
+       "fewer": 61.9,
+       "more": 4.6
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.077,
+      "median_seats": {
+       "site": 5,
+       "census": 5
+      },
+      "official_seats": 5,
+      "official_vs_site": {
+       "fewer": 36.9,
+       "more": 19.7
+      },
+      "official_vs_census": {
+       "fewer": 29.1,
+       "more": 23.7
+      }
+     }
+    },
+    "max_seats_tv": 0.099,
+    "median_county_splits": {
+     "site": 13.0,
+     "census": 13.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": true,
+    "census": true
+   }
+  }
+ },
+ {
+  "abbr": "MN",
+  "districts": 8,
+  "graph": {
+   "units": 4706,
+   "census_edges": 12697,
+   "site_edges": 14022,
+   "site_edges_that_share_a_border_pct": 75.7,
+   "water_links": 3,
+   "people_on_water_linked_units": 2594
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.016,
+      "median_seats": {
+       "site": 4,
+       "census": 4
+      },
+      "official_seats": 3,
+      "official_vs_site": {
+       "fewer": 1.8,
+       "more": 51.5
+      },
+      "official_vs_census": {
+       "fewer": 2.3,
+       "more": 50.0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.035,
+      "median_seats": {
+       "site": 4,
+       "census": 4
+      },
+      "official_seats": 4,
+      "official_vs_site": {
+       "fewer": 10.1,
+       "more": 13.2
+      },
+      "official_vs_census": {
+       "fewer": 12.1,
+       "more": 14.7
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.038,
+      "median_seats": {
+       "site": 4,
+       "census": 4
+      },
+      "official_seats": 4,
+      "official_vs_site": {
+       "fewer": 18.3,
+       "more": 7.1
+      },
+      "official_vs_census": {
+       "fewer": 21.6,
+       "more": 7.6
+      }
+     }
+    },
+    "max_seats_tv": 0.038,
+    "median_county_splits": {
+     "site": 33.0,
+     "census": 30.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.03,
+      "median_seats": {
+       "site": 3,
+       "census": 3
+      },
+      "official_seats": 3,
+      "official_vs_site": {
+       "fewer": 7.0,
+       "more": 36.2
+      },
+      "official_vs_census": {
+       "fewer": 6.3,
+       "more": 34.1
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.046,
+      "median_seats": {
+       "site": 4,
+       "census": 4
+      },
+      "official_seats": 4,
+      "official_vs_site": {
+       "fewer": 10.3,
+       "more": 18.5
+      },
+      "official_vs_census": {
+       "fewer": 10.4,
+       "more": 23.1
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.031,
+      "median_seats": {
+       "site": 4,
+       "census": 4
+      },
+      "official_seats": 4,
+      "official_vs_site": {
+       "fewer": 20.1,
+       "more": 9.5
+      },
+      "official_vs_census": {
+       "fewer": 18.6,
+       "more": 12.5
+      }
+     }
+    },
+    "max_seats_tv": 0.046,
+    "median_county_splits": {
+     "site": 8.0,
+     "census": 8.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": true,
+    "census": true
+   }
+  }
+ },
+ {
+  "abbr": "MO",
+  "districts": 8,
+  "graph": {
+   "units": 5031,
+   "census_edges": 13829,
+   "site_edges": 14993,
+   "site_edges_that_share_a_border_pct": 77.8,
+   "water_links": 0,
+   "people_on_water_linked_units": 0
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.018,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 13.2,
+       "more": 31.3
+      },
+      "official_vs_census": {
+       "fewer": 15.1,
+       "more": 30.6
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.027,
+      "median_seats": {
+       "site": 3,
+       "census": 3
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 3.7,
+       "more": 57.9
+      },
+      "official_vs_census": {
+       "fewer": 4.8,
+       "more": 55.2
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.045,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 7.5,
+       "more": 48.4
+      },
+      "official_vs_census": {
+       "fewer": 9.5,
+       "more": 43.9
+      }
+     }
+    },
+    "max_seats_tv": 0.045,
+    "median_county_splits": {
+     "site": 42.0,
+     "census": 38.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.012,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 21.7,
+       "more": 16.7
+      },
+      "official_vs_census": {
+       "fewer": 20.5,
+       "more": 17.9
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.003,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 10.2,
+       "more": 26.8
+      },
+      "official_vs_census": {
+       "fewer": 10.1,
+       "more": 27.1
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.005,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 17.2,
+       "more": 21.6
+      },
+      "official_vs_census": {
+       "fewer": 16.9,
+       "more": 22.1
+      }
+     }
+    },
+    "max_seats_tv": 0.012,
+    "median_county_splits": {
+     "site": 8.0,
+     "census": 8.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": true,
+    "census": true
+   }
+  }
+ },
+ {
+  "abbr": "MS",
+  "districts": 4,
+  "graph": {
+   "units": 2445,
+   "census_edges": 6697,
+   "site_edges": 7242,
+   "site_edges_that_share_a_border_pct": 78.1,
+   "water_links": 3,
+   "people_on_water_linked_units": 1879
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.013,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 43.4,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 44.7,
+       "more": 0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.002,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 22.7,
+       "more": 0.3
+      },
+      "official_vs_census": {
+       "fewer": 22.8,
+       "more": 0.2
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.017,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 73.3,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 75.0,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.017,
+    "median_county_splits": {
+     "site": 26.0,
+     "census": 23.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.012,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 46.5,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 45.4,
+       "more": 0.0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.015,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 23.5,
+       "more": 0.5
+      },
+      "official_vs_census": {
+       "fewer": 22.1,
+       "more": 0.4
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.021,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 68.4,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 70.4,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.021,
+    "median_county_splits": {
+     "site": 3.0,
+     "census": 3.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": true
+   },
+   "official": {
+    "site": false,
+    "census": false
+   }
+  }
+ },
+ {
+  "abbr": "MT",
+  "districts": 2,
+  "graph": {
+   "units": 900,
+   "census_edges": 2436,
+   "site_edges": 2668,
+   "site_edges_that_share_a_border_pct": 72.2,
+   "water_links": 0,
+   "people_on_water_linked_units": 0
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.0,
+    "median_county_splits": {
+     "site": 9.0,
+     "census": 6.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.0,
+    "median_county_splits": {
+     "site": 1.0,
+     "census": 1.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": true
+   },
+   "official": {
+    "site": true,
+    "census": true
+   }
+  }
+ },
+ {
+  "abbr": "NC",
+  "districts": 14,
+  "graph": {
+   "units": 7111,
+   "census_edges": 19398,
+   "site_edges": 21060,
+   "site_edges_that_share_a_border_pct": 78.7,
+   "water_links": 33,
+   "people_on_water_linked_units": 27584
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.105,
+      "median_seats": {
+       "site": 6,
+       "census": 6
+      },
+      "official_seats": 3,
+      "official_vs_site": {
+       "fewer": 0.0,
+       "more": 99.2
+      },
+      "official_vs_census": {
+       "fewer": 0.0,
+       "more": 99.7
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.057,
+      "median_seats": {
+       "site": 6,
+       "census": 6
+      },
+      "official_seats": 3,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 99.4
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 99.8
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.047,
+      "median_seats": {
+       "site": 5,
+       "census": 5
+      },
+      "official_seats": 3,
+      "official_vs_site": {
+       "fewer": 0.0,
+       "more": 97.4
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 98.7
+      }
+     }
+    },
+    "max_seats_tv": 0.105,
+    "median_county_splits": {
+     "site": 53.0,
+     "census": 49.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.028,
+      "median_seats": {
+       "site": 6,
+       "census": 6
+      },
+      "official_seats": 3,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 99.8
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 99.8
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.026,
+      "median_seats": {
+       "site": 6,
+       "census": 6
+      },
+      "official_seats": 3,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 99.8
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 100.0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.029,
+      "median_seats": {
+       "site": 5,
+       "census": 5
+      },
+      "official_seats": 3,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 99.3
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 99.6
+      }
+     }
+    },
+    "max_seats_tv": 0.029,
+    "median_county_splits": {
+     "site": 17.0,
+     "census": 16.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": true
+   },
+   "official": {
+    "site": false,
+    "census": false
+   }
+  }
+ },
+ {
+  "abbr": "ND",
+  "districts": 1,
+  "graph": {
+   "units": 632,
+   "census_edges": 1637,
+   "site_edges": 1865,
+   "site_edges_that_share_a_border_pct": 72.3,
+   "water_links": 0,
+   "people_on_water_linked_units": 0
+  },
+  "variants": {}
+ },
+ {
+  "abbr": "NE",
+  "districts": 3,
+  "graph": {
+   "units": 1648,
+   "census_edges": 4403,
+   "site_edges": 4891,
+   "site_edges_that_share_a_border_pct": 75.1,
+   "water_links": 0,
+   "people_on_water_linked_units": 0
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.003,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 30.9
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 30.6
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.03,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 8.0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 5.0,
+       "more": 0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.052,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 13.8,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 8.6,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.052,
+    "median_county_splits": {
+     "site": 13.0,
+     "census": 10.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.03,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 10.0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 13.0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.022,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 4.2,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 2.0,
+       "more": 0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.043,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 7.9,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 3.5,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.043,
+    "median_county_splits": {
+     "site": 2.0,
+     "census": 2.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": true
+   },
+   "official": {
+    "site": true,
+    "census": true
+   }
+  }
+ },
+ {
+  "abbr": "NH",
+  "districts": 2,
+  "graph": {
+   "units": 997,
+   "census_edges": 2694,
+   "site_edges": 2931,
+   "site_edges_that_share_a_border_pct": 77.3,
+   "water_links": 1,
+   "people_on_water_linked_units": 934
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.01,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 9.5
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 8.4
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.042,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 30.4,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 26.2,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.042,
+    "median_county_splits": {
+     "site": 5.0,
+     "census": 4.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.016,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 3.4
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 1.8
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.006,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 20.5,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 19.8,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.016,
+    "median_county_splits": {
+     "site": 1.0,
+     "census": 1.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": true
+   },
+   "official": {
+    "site": true,
+    "census": true
+   }
+  }
+ },
+ {
+  "abbr": "NJ",
+  "districts": 12,
+  "graph": {
+   "units": 6599,
+   "census_edges": 17988,
+   "site_edges": 19667,
+   "site_edges_that_share_a_border_pct": 75.4,
+   "water_links": 6,
+   "people_on_water_linked_units": 4056
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.094,
+      "median_seats": {
+       "site": 9,
+       "census": 9
+      },
+      "official_seats": 9,
+      "official_vs_site": {
+       "fewer": 39.1,
+       "more": 8.5
+      },
+      "official_vs_census": {
+       "fewer": 48.0,
+       "more": 6.5
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.03,
+      "median_seats": {
+       "site": 9,
+       "census": 9
+      },
+      "official_seats": 10,
+      "official_vs_site": {
+       "fewer": 55.2,
+       "more": 7.2
+      },
+      "official_vs_census": {
+       "fewer": 58.0,
+       "more": 6.2
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.076,
+      "median_seats": {
+       "site": 8,
+       "census": 8
+      },
+      "official_seats": 9,
+      "official_vs_site": {
+       "fewer": 88.2,
+       "more": 0.1
+      },
+      "official_vs_census": {
+       "fewer": 92.8,
+       "more": 0.2
+      }
+     }
+    },
+    "max_seats_tv": 0.094,
+    "median_county_splits": {
+     "site": 17.0,
+     "census": 17.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.225,
+      "median_seats": {
+       "site": 9,
+       "census": 8
+      },
+      "official_seats": 9,
+      "official_vs_site": {
+       "fewer": 32.4,
+       "more": 4.3
+      },
+      "official_vs_census": {
+       "fewer": 54.9,
+       "more": 3.1
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.113,
+      "median_seats": {
+       "site": 9,
+       "census": 9
+      },
+      "official_seats": 10,
+      "official_vs_site": {
+       "fewer": 79.9,
+       "more": 0.7
+      },
+      "official_vs_census": {
+       "fewer": 82.4,
+       "more": 0.7
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.231,
+      "median_seats": {
+       "site": 8,
+       "census": 7
+      },
+      "official_seats": 9,
+      "official_vs_site": {
+       "fewer": 93.7,
+       "more": 0.1
+      },
+      "official_vs_census": {
+       "fewer": 97.5,
+       "more": 0.1
+      }
+     }
+    },
+    "max_seats_tv": 0.231,
+    "median_county_splits": {
+     "site": 11.0,
+     "census": 11.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": true,
+    "census": false
+   }
+  }
+ },
+ {
+  "abbr": "NM",
+  "districts": 3,
+  "graph": {
+   "units": 1614,
+   "census_edges": 4360,
+   "site_edges": 4811,
+   "site_edges_that_share_a_border_pct": 73.4,
+   "water_links": 0,
+   "people_on_water_linked_units": 0
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.101,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 3,
+      "official_vs_site": {
+       "fewer": 85.0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 94.8,
+       "more": 0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.102,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 3,
+      "official_vs_site": {
+       "fewer": 84.4,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 94.5,
+       "more": 0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.027,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 5.1,
+       "more": 1.0
+      },
+      "official_vs_census": {
+       "fewer": 2.6,
+       "more": 0.7
+      }
+     }
+    },
+    "max_seats_tv": 0.102,
+    "median_county_splits": {
+     "site": 11.0,
+     "census": 9.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.047,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 3,
+      "official_vs_site": {
+       "fewer": 93.8,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 98.5,
+       "more": 0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.05,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 3,
+      "official_vs_site": {
+       "fewer": 93.5,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 98.5,
+       "more": 0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.01,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 1.9,
+       "more": 0.2
+      },
+      "official_vs_census": {
+       "fewer": 1.0,
+       "more": 0.1
+      }
+     }
+    },
+    "max_seats_tv": 0.05,
+    "median_county_splits": {
+     "site": 2.0,
+     "census": 2.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": true,
+    "census": false
+   }
+  }
+ },
+ {
+  "abbr": "NV",
+  "districts": 4,
+  "graph": {
+   "units": 1963,
+   "census_edges": 5214,
+   "site_edges": 5866,
+   "site_edges_that_share_a_border_pct": 74.1,
+   "water_links": 0,
+   "people_on_water_linked_units": 0
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.036,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 1.4,
+       "more": 11.6
+      },
+      "official_vs_census": {
+       "fewer": 0.9,
+       "more": 8.5
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.029,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 1.7,
+       "more": 10.5
+      },
+      "official_vs_census": {
+       "fewer": 1.3,
+       "more": 8.0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.04,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 29.2,
+       "more": 0.1
+      },
+      "official_vs_census": {
+       "fewer": 25.3,
+       "more": 0.0
+      }
+     }
+    },
+    "max_seats_tv": 0.04,
+    "median_county_splits": {
+     "site": 4.0,
+     "census": 3.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.02,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 1.2,
+       "more": 10.2
+      },
+      "official_vs_census": {
+       "fewer": 0.9,
+       "more": 8.5
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.017,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 1.9,
+       "more": 9.0
+      },
+      "official_vs_census": {
+       "fewer": 1.4,
+       "more": 7.9
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.033,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 29.0,
+       "more": 0.1
+      },
+      "official_vs_census": {
+       "fewer": 25.7,
+       "more": 0.1
+      }
+     }
+    },
+    "max_seats_tv": 0.033,
+    "median_county_splits": {
+     "site": 2.0,
+     "census": 1.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": false,
+    "census": true
+   }
+  }
+ },
+ {
+  "abbr": "NY",
+  "districts": 26,
+  "graph": {
+   "units": 16070,
+   "census_edges": 42695,
+   "site_edges": 47873,
+   "site_edges_that_share_a_border_pct": 74.8,
+   "water_links": 116,
+   "people_on_water_linked_units": 79365
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.029,
+      "median_seats": {
+       "site": 18,
+       "census": 18
+      },
+      "official_seats": 19,
+      "official_vs_site": {
+       "fewer": 71.0,
+       "more": 4.1
+      },
+      "official_vs_census": {
+       "fewer": 73.5,
+       "more": 2.9
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.102,
+      "median_seats": {
+       "site": 20,
+       "census": 20
+      },
+      "official_seats": 20,
+      "official_vs_site": {
+       "fewer": 32.1,
+       "more": 25.0
+      },
+      "official_vs_census": {
+       "fewer": 21.9,
+       "more": 35.2
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.073,
+      "median_seats": {
+       "site": 16,
+       "census": 16
+      },
+      "official_seats": 18,
+      "official_vs_site": {
+       "fewer": 90.5,
+       "more": 0.9
+      },
+      "official_vs_census": {
+       "fewer": 86.6,
+       "more": 2.0
+      }
+     }
+    },
+    "max_seats_tv": 0.102,
+    "median_county_splits": {
+     "site": 43.0,
+     "census": 42.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.062,
+      "median_seats": {
+       "site": 18,
+       "census": 18
+      },
+      "official_seats": 19,
+      "official_vs_site": {
+       "fewer": 78.2,
+       "more": 2.7
+      },
+      "official_vs_census": {
+       "fewer": 79.9,
+       "more": 1.8
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.088,
+      "median_seats": {
+       "site": 20,
+       "census": 20
+      },
+      "official_seats": 20,
+      "official_vs_site": {
+       "fewer": 24.0,
+       "more": 30.3
+      },
+      "official_vs_census": {
+       "fewer": 16.1,
+       "more": 39.0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.049,
+      "median_seats": {
+       "site": 16,
+       "census": 16
+      },
+      "official_seats": 18,
+      "official_vs_site": {
+       "fewer": 92.9,
+       "more": 0.5
+      },
+      "official_vs_census": {
+       "fewer": 90.2,
+       "more": 0.8
+      }
+     }
+    },
+    "max_seats_tv": 0.088,
+    "median_county_splits": {
+     "site": 18.0,
+     "census": 18.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": true,
+    "census": false
+   }
+  }
+ },
+ {
+  "abbr": "OH",
+  "districts": 15,
+  "graph": {
+   "units": 9472,
+   "census_edges": 25928,
+   "site_edges": 28234,
+   "site_edges_that_share_a_border_pct": 76.9,
+   "water_links": 8,
+   "people_on_water_linked_units": 7612
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.067,
+      "median_seats": {
+       "site": 5,
+       "census": 5
+      },
+      "official_seats": 3,
+      "official_vs_site": {
+       "fewer": 0.3,
+       "more": 92.2
+      },
+      "official_vs_census": {
+       "fewer": 0.1,
+       "more": 95.0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.082,
+      "median_seats": {
+       "site": 5,
+       "census": 5
+      },
+      "official_seats": 3,
+      "official_vs_site": {
+       "fewer": 0.1,
+       "more": 95.7
+      },
+      "official_vs_census": {
+       "fewer": 0.0,
+       "more": 97.9
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.085,
+      "median_seats": {
+       "site": 5,
+       "census": 5
+      },
+      "official_seats": 3,
+      "official_vs_site": {
+       "fewer": 0.8,
+       "more": 88.4
+      },
+      "official_vs_census": {
+       "fewer": 0.4,
+       "more": 92.3
+      }
+     }
+    },
+    "max_seats_tv": 0.085,
+    "median_county_splits": {
+     "site": 56.5,
+     "census": 53.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.033,
+      "median_seats": {
+       "site": 5,
+       "census": 5
+      },
+      "official_seats": 3,
+      "official_vs_site": {
+       "fewer": 0.0,
+       "more": 97.7
+      },
+      "official_vs_census": {
+       "fewer": 0.0,
+       "more": 97.6
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.029,
+      "median_seats": {
+       "site": 5,
+       "census": 5
+      },
+      "official_seats": 3,
+      "official_vs_site": {
+       "fewer": 0.0,
+       "more": 99.1
+      },
+      "official_vs_census": {
+       "fewer": 0.0,
+       "more": 99.1
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.031,
+      "median_seats": {
+       "site": 5,
+       "census": 5
+      },
+      "official_seats": 3,
+      "official_vs_site": {
+       "fewer": 0.2,
+       "more": 94.9
+      },
+      "official_vs_census": {
+       "fewer": 0.1,
+       "more": 95.9
+      }
+     }
+    },
+    "max_seats_tv": 0.033,
+    "median_county_splits": {
+     "site": 19.0,
+     "census": 18.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": false,
+    "census": false
+   }
+  }
+ },
+ {
+  "abbr": "OK",
+  "districts": 5,
+  "graph": {
+   "units": 3374,
+   "census_edges": 9052,
+   "site_edges": 10079,
+   "site_edges_that_share_a_border_pct": 75.5,
+   "water_links": 0,
+   "people_on_water_linked_units": 0
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.023,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 2.9
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 5.2
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.011,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 1.7
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 2.8
+      }
+     }
+    },
+    "max_seats_tv": 0.023,
+    "median_county_splits": {
+     "site": 28.0,
+     "census": 24.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.001,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 3.3
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 3.2
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.004,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 1.9
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 1.5
+      }
+     }
+    },
+    "max_seats_tv": 0.004,
+    "median_county_splits": {
+     "site": 5.0,
+     "census": 5.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": true
+   },
+   "official": {
+    "site": true,
+    "census": true
+   }
+  }
+ },
+ {
+  "abbr": "OR",
+  "districts": 6,
+  "graph": {
+   "units": 2970,
+   "census_edges": 8164,
+   "site_edges": 8790,
+   "site_edges_that_share_a_border_pct": 77.7,
+   "water_links": 7,
+   "people_on_water_linked_units": 6081
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.024,
+      "median_seats": {
+       "site": 4,
+       "census": 4
+      },
+      "official_seats": 5,
+      "official_vs_site": {
+       "fewer": 96.7,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 97.7,
+       "more": 0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.132,
+      "median_seats": {
+       "site": 4,
+       "census": 4
+      },
+      "official_seats": 5,
+      "official_vs_site": {
+       "fewer": 52.8,
+       "more": 0.0
+      },
+      "official_vs_census": {
+       "fewer": 66.0,
+       "more": 0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.079,
+      "median_seats": {
+       "site": 4,
+       "census": 4
+      },
+      "official_seats": 5,
+      "official_vs_site": {
+       "fewer": 73.9,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 81.8,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.132,
+    "median_county_splits": {
+     "site": 16.0,
+     "census": 13.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.239,
+      "median_seats": {
+       "site": 3,
+       "census": 3
+      },
+      "official_seats": 5,
+      "official_vs_site": {
+       "fewer": 98.8,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 99.5,
+       "more": 0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.235,
+      "median_seats": {
+       "site": 5,
+       "census": 4
+      },
+      "official_seats": 5,
+      "official_vs_site": {
+       "fewer": 36.5,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 60.0,
+       "more": 0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.208,
+      "median_seats": {
+       "site": 4,
+       "census": 4
+      },
+      "official_seats": 5,
+      "official_vs_site": {
+       "fewer": 61.8,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 82.6,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.239,
+    "median_county_splits": {
+     "site": 6.0,
+     "census": 5.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": true
+   },
+   "official": {
+    "site": false,
+    "census": true
+   }
+  }
+ },
+ {
+  "abbr": "PA",
+  "districts": 17,
+  "graph": {
+   "units": 10173,
+   "census_edges": 28321,
+   "site_edges": 30432,
+   "site_edges_that_share_a_border_pct": 76.2,
+   "water_links": 1,
+   "people_on_water_linked_units": 0
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.011,
+      "median_seats": {
+       "site": 6,
+       "census": 6
+      },
+      "official_seats": 8,
+      "official_vs_site": {
+       "fewer": 92.8,
+       "more": 0.3
+      },
+      "official_vs_census": {
+       "fewer": 92.4,
+       "more": 0.2
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.102,
+      "median_seats": {
+       "site": 7,
+       "census": 8
+      },
+      "official_seats": 9,
+      "official_vs_site": {
+       "fewer": 92.7,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 87.2,
+       "more": 0.0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.051,
+      "median_seats": {
+       "site": 7,
+       "census": 7
+      },
+      "official_seats": 8,
+      "official_vs_site": {
+       "fewer": 87.6,
+       "more": 0.6
+      },
+      "official_vs_census": {
+       "fewer": 84.8,
+       "more": 1.0
+      }
+     }
+    },
+    "max_seats_tv": 0.102,
+    "median_county_splits": {
+     "site": 48.0,
+     "census": 44.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.019,
+      "median_seats": {
+       "site": 7,
+       "census": 7
+      },
+      "official_seats": 8,
+      "official_vs_site": {
+       "fewer": 88.3,
+       "more": 1.0
+      },
+      "official_vs_census": {
+       "fewer": 87.9,
+       "more": 0.8
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.044,
+      "median_seats": {
+       "site": 8,
+       "census": 8
+      },
+      "official_seats": 9,
+      "official_vs_site": {
+       "fewer": 73.9,
+       "more": 0.1
+      },
+      "official_vs_census": {
+       "fewer": 69.7,
+       "more": 0.1
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.081,
+      "median_seats": {
+       "site": 6,
+       "census": 7
+      },
+      "official_seats": 8,
+      "official_vs_site": {
+       "fewer": 86.8,
+       "more": 0.7
+      },
+      "official_vs_census": {
+       "fewer": 81.3,
+       "more": 1.7
+      }
+     }
+    },
+    "max_seats_tv": 0.081,
+    "median_county_splits": {
+     "site": 19.0,
+     "census": 18.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": true,
+    "census": true
+   }
+  }
+ },
+ {
+  "abbr": "RI",
+  "districts": 2,
+  "graph": {
+   "units": 792,
+   "census_edges": 2054,
+   "site_edges": 2301,
+   "site_edges_that_share_a_border_pct": 77.5,
+   "water_links": 9,
+   "people_on_water_linked_units": 12115
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.026,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 0.5,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 3.0,
+       "more": 0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.001,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 0.2,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0.3,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.026,
+    "median_county_splits": {
+     "site": 3.0,
+     "census": 2.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.027,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 2.2,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 4.8,
+       "more": 0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.004,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 0.4,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0.0,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.027,
+    "median_county_splits": {
+     "site": 1.0,
+     "census": 1.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": true,
+    "census": true
+   }
+  }
+ },
+ {
+  "abbr": "SC",
+  "districts": 7,
+  "graph": {
+   "units": 3408,
+   "census_edges": 9352,
+   "site_edges": 10100,
+   "site_edges_that_share_a_border_pct": 77.9,
+   "water_links": 6,
+   "people_on_water_linked_units": 5578
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.063,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 8.9,
+       "more": 27.3
+      },
+      "official_vs_census": {
+       "fewer": 10.3,
+       "more": 21.0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.078,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 0.4,
+       "more": 92.2
+      },
+      "official_vs_census": {
+       "fewer": 0.1,
+       "more": 93.0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.037,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 24.5,
+       "more": 1.4
+      },
+      "official_vs_census": {
+       "fewer": 28.0,
+       "more": 1.5
+      }
+     }
+    },
+    "max_seats_tv": 0.078,
+    "median_county_splits": {
+     "site": 27.0,
+     "census": 26.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.034,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 7.7,
+       "more": 26.2
+      },
+      "official_vs_census": {
+       "fewer": 6.4,
+       "more": 29.6
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.024,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 0.1,
+       "more": 93.2
+      },
+      "official_vs_census": {
+       "fewer": 0.1,
+       "more": 93.2
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.021,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 20.0,
+       "more": 1.1
+      },
+      "official_vs_census": {
+       "fewer": 18.0,
+       "more": 0.9
+      }
+     }
+    },
+    "max_seats_tv": 0.034,
+    "median_county_splits": {
+     "site": 9.0,
+     "census": 8.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": true,
+    "census": false
+   }
+  }
+ },
+ {
+  "abbr": "SD",
+  "districts": 1,
+  "graph": {
+   "units": 694,
+   "census_edges": 1830,
+   "site_edges": 2048,
+   "site_edges_that_share_a_border_pct": 71.6,
+   "water_links": 0,
+   "people_on_water_linked_units": 0
+  },
+  "variants": {}
+ },
+ {
+  "abbr": "TN",
+  "districts": 9,
+  "graph": {
+   "units": 4562,
+   "census_edges": 12620,
+   "site_edges": 13628,
+   "site_edges_that_share_a_border_pct": 78.1,
+   "water_links": 0,
+   "people_on_water_linked_units": 0
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.01,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 99.9
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 100.0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.022,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 100.0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 100.0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.011,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 98.7
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 99.7
+      }
+     }
+    },
+    "max_seats_tv": 0.022,
+    "median_county_splits": {
+     "site": 43.0,
+     "census": 37.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.015,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 100.0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 100.0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.023,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 100.0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 100.0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.015,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 99.5
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 99.9
+      }
+     }
+    },
+    "max_seats_tv": 0.023,
+    "median_county_splits": {
+     "site": 10.0,
+     "census": 9.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": true,
+    "census": true
+   }
+  }
+ },
+ {
+  "abbr": "TX",
+  "districts": 38,
+  "graph": {
+   "units": 18638,
+   "census_edges": 50432,
+   "site_edges": 55634,
+   "site_edges_that_share_a_border_pct": 74.8,
+   "water_links": 12,
+   "people_on_water_linked_units": 10691
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.054,
+      "median_seats": {
+       "site": 17,
+       "census": 17
+      },
+      "official_seats": 13,
+      "official_vs_site": {
+       "fewer": 0.0,
+       "more": 99.4
+      },
+      "official_vs_census": {
+       "fewer": 0.0,
+       "more": 99.6
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.053,
+      "median_seats": {
+       "site": 18,
+       "census": 19
+      },
+      "official_seats": 14,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 100.0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 100.0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.08,
+      "median_seats": {
+       "site": 14,
+       "census": 14
+      },
+      "official_seats": 9,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 100.0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 100.0
+      }
+     }
+    },
+    "max_seats_tv": 0.08,
+    "median_county_splits": {
+     "site": 107.0,
+     "census": 93.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.034,
+      "median_seats": {
+       "site": 17,
+       "census": 17
+      },
+      "official_seats": 13,
+      "official_vs_site": {
+       "fewer": 0.0,
+       "more": 99.8
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 99.9
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.032,
+      "median_seats": {
+       "site": 18,
+       "census": 18
+      },
+      "official_seats": 14,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 100.0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 100.0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.056,
+      "median_seats": {
+       "site": 14,
+       "census": 14
+      },
+      "official_seats": 9,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 100.0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 100.0
+      }
+     }
+    },
+    "max_seats_tv": 0.056,
+    "median_county_splits": {
+     "site": 36.0,
+     "census": 34.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": false,
+    "census": false
+   }
+  }
+ },
+ {
+  "abbr": "UT",
+  "districts": 4,
+  "graph": {
+   "units": 2020,
+   "census_edges": 5431,
+   "site_edges": 6041,
+   "site_edges_that_share_a_border_pct": 75.0,
+   "water_links": 0,
+   "people_on_water_linked_units": 0
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.08,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 7.3,
+       "more": 0.3
+      },
+      "official_vs_census": {
+       "fewer": 15.3,
+       "more": 0.2
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.083,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 6.9,
+       "more": 0.8
+      },
+      "official_vs_census": {
+       "fewer": 15.2,
+       "more": 0.4
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.093,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 9.4,
+       "more": 0.3
+      },
+      "official_vs_census": {
+       "fewer": 18.7,
+       "more": 0.1
+      }
+     }
+    },
+    "max_seats_tv": 0.093,
+    "median_county_splits": {
+     "site": 8.0,
+     "census": 6.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.003,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 3.5,
+       "more": 0.2
+      },
+      "official_vs_census": {
+       "fewer": 3.3,
+       "more": 0.2
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.003,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 3.0,
+       "more": 0.5
+      },
+      "official_vs_census": {
+       "fewer": 2.9,
+       "more": 0.3
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.012,
+      "median_seats": {
+       "site": 1,
+       "census": 1
+      },
+      "official_seats": 1,
+      "official_vs_site": {
+       "fewer": 4.5,
+       "more": 0.4
+      },
+      "official_vs_census": {
+       "fewer": 5.7,
+       "more": 0.1
+      }
+     }
+    },
+    "max_seats_tv": 0.012,
+    "median_county_splits": {
+     "site": 3.0,
+     "census": 3.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": true
+   },
+   "official": {
+    "site": true,
+    "census": true
+   }
+  }
+ },
+ {
+  "abbr": "VA",
+  "districts": 11,
+  "graph": {
+   "units": 5963,
+   "census_edges": 16197,
+   "site_edges": 17639,
+   "site_edges_that_share_a_border_pct": 76.4,
+   "water_links": 14,
+   "people_on_water_linked_units": 9623
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.128,
+      "median_seats": {
+       "site": 7,
+       "census": 7
+      },
+      "official_seats": 6,
+      "official_vs_site": {
+       "fewer": 1.1,
+       "more": 70.8
+      },
+      "official_vs_census": {
+       "fewer": 1.1,
+       "more": 79.6
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.047,
+      "median_seats": {
+       "site": 8,
+       "census": 8
+      },
+      "official_seats": 7,
+      "official_vs_site": {
+       "fewer": 6.3,
+       "more": 56.4
+      },
+      "official_vs_census": {
+       "fewer": 1.6,
+       "more": 57.2
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.149,
+      "median_seats": {
+       "site": 7,
+       "census": 7
+      },
+      "official_seats": 6,
+      "official_vs_site": {
+       "fewer": 0.0,
+       "more": 81.9
+      },
+      "official_vs_census": {
+       "fewer": 0.0,
+       "more": 92.2
+      }
+     }
+    },
+    "max_seats_tv": 0.149,
+    "median_county_splits": {
+     "site": 49.0,
+     "census": 44.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.062,
+      "median_seats": {
+       "site": 7,
+       "census": 6
+      },
+      "official_seats": 6,
+      "official_vs_site": {
+       "fewer": 8.2,
+       "more": 51.4
+      },
+      "official_vs_census": {
+       "fewer": 5.5,
+       "more": 48.8
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.068,
+      "median_seats": {
+       "site": 8,
+       "census": 8
+      },
+      "official_seats": 7,
+      "official_vs_site": {
+       "fewer": 0.5,
+       "more": 84.7
+      },
+      "official_vs_census": {
+       "fewer": 0.5,
+       "more": 78.0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.122,
+      "median_seats": {
+       "site": 7,
+       "census": 7
+      },
+      "official_seats": 6,
+      "official_vs_site": {
+       "fewer": 0.1,
+       "more": 91.1
+      },
+      "official_vs_census": {
+       "fewer": 0.0,
+       "more": 94.0
+      }
+     }
+    },
+    "max_seats_tv": 0.122,
+    "median_county_splits": {
+     "site": 12.0,
+     "census": 11.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": false,
+    "census": false
+   }
+  }
+ },
+ {
+  "abbr": "VT",
+  "districts": 1,
+  "graph": {
+   "units": 552,
+   "census_edges": 1474,
+   "site_edges": 1618,
+   "site_edges_that_share_a_border_pct": 78.2,
+   "water_links": 0,
+   "people_on_water_linked_units": 0
+  },
+  "variants": {}
+ },
+ {
+  "abbr": "WA",
+  "districts": 10,
+  "graph": {
+   "units": 5311,
+   "census_edges": 14428,
+   "site_edges": 15617,
+   "site_edges_that_share_a_border_pct": 77.4,
+   "water_links": 24,
+   "people_on_water_linked_units": 38400
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.008,
+      "median_seats": {
+       "site": 7,
+       "census": 7
+      },
+      "official_seats": 7,
+      "official_vs_site": {
+       "fewer": 16.0,
+       "more": 0.5
+      },
+      "official_vs_census": {
+       "fewer": 16.9,
+       "more": 0.3
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.016,
+      "median_seats": {
+       "site": 7,
+       "census": 7
+      },
+      "official_seats": 7,
+      "official_vs_site": {
+       "fewer": 4.7,
+       "more": 5.1
+      },
+      "official_vs_census": {
+       "fewer": 4.5,
+       "more": 3.8
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.02,
+      "median_seats": {
+       "site": 7,
+       "census": 7
+      },
+      "official_seats": 7,
+      "official_vs_site": {
+       "fewer": 5.5,
+       "more": 8.5
+      },
+      "official_vs_census": {
+       "fewer": 5.1,
+       "more": 6.9
+      }
+     }
+    },
+    "max_seats_tv": 0.02,
+    "median_county_splits": {
+     "site": 18.0,
+     "census": 16.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.034,
+      "median_seats": {
+       "site": 7,
+       "census": 7
+      },
+      "official_seats": 7,
+      "official_vs_site": {
+       "fewer": 13.2,
+       "more": 0.3
+      },
+      "official_vs_census": {
+       "fewer": 16.2,
+       "more": 0.1
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.057,
+      "median_seats": {
+       "site": 7,
+       "census": 7
+      },
+      "official_seats": 7,
+      "official_vs_site": {
+       "fewer": 1.3,
+       "more": 7.1
+      },
+      "official_vs_census": {
+       "fewer": 2.1,
+       "more": 1.4
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.075,
+      "median_seats": {
+       "site": 7,
+       "census": 7
+      },
+      "official_seats": 7,
+      "official_vs_site": {
+       "fewer": 1.3,
+       "more": 10.5
+      },
+      "official_vs_census": {
+       "fewer": 2.2,
+       "more": 3.0
+      }
+     }
+    },
+    "max_seats_tv": 0.075,
+    "median_county_splits": {
+     "site": 9.0,
+     "census": 8.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": false,
+    "census": false
+   }
+  }
+ },
+ {
+  "abbr": "WI",
+  "districts": 8,
+  "graph": {
+   "units": 4692,
+   "census_edges": 12759,
+   "site_edges": 13880,
+   "site_edges_that_share_a_border_pct": 78.3,
+   "water_links": 16,
+   "people_on_water_linked_units": 14798
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.066,
+      "median_seats": {
+       "site": 3,
+       "census": 3
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 59.2
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 52.6
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.062,
+      "median_seats": {
+       "site": 3,
+       "census": 3
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 66.5
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 60.3
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.058,
+      "median_seats": {
+       "site": 3,
+       "census": 3
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 59.0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 53.2
+      }
+     }
+    },
+    "max_seats_tv": 0.066,
+    "median_county_splits": {
+     "site": 35.0,
+     "census": 33.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.095,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 38.4
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 28.9
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.09,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 43.0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 34.1
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.091,
+      "median_seats": {
+       "site": 2,
+       "census": 2
+      },
+      "official_seats": 2,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 35.8
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 26.8
+      }
+     }
+    },
+    "max_seats_tv": 0.095,
+    "median_county_splits": {
+     "site": 9.0,
+     "census": 9.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": false
+   },
+   "official": {
+    "site": true,
+    "census": true
+   }
+  }
+ },
+ {
+  "abbr": "WV",
+  "districts": 2,
+  "graph": {
+   "units": 1639,
+   "census_edges": 4470,
+   "site_edges": 4770,
+   "site_edges_that_share_a_border_pct": 78.7,
+   "water_links": 0,
+   "people_on_water_linked_units": 0
+  },
+  "variants": {
+   "plain": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.0,
+    "median_county_splits": {
+     "site": 8.0,
+     "census": 8.0
+    }
+   },
+   "county20": {
+    "elections": {
+     "pres2016": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     },
+     "pres2020": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     },
+     "pres2024": {
+      "seats_tv": 0.0,
+      "median_seats": {
+       "site": 0,
+       "census": 0
+      },
+      "official_seats": 0,
+      "official_vs_site": {
+       "fewer": 0,
+       "more": 0
+      },
+      "official_vs_census": {
+       "fewer": 0,
+       "more": 0
+      }
+     }
+    },
+    "max_seats_tv": 0.0,
+    "median_county_splits": {
+     "site": 1.0,
+     "census": 1.0
+    }
+   }
+  },
+  "contiguous": {
+   "solver": {
+    "site": true,
+    "census": true
+   },
+   "official": {
+    "site": true,
+    "census": true
+   }
+  }
+ },
+ {
+  "abbr": "WY",
+  "districts": 1,
+  "graph": {
+   "units": 457,
+   "census_edges": 1229,
+   "site_edges": 1355,
+   "site_edges_that_share_a_border_pct": 72.0,
+   "water_links": 0,
+   "people_on_water_linked_units": 0
+  },
+  "variants": {}
+ }
+]

@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="data:,">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fifty States by Friendship</title>
+<meta name="description" content="The United States redrawn as 50 states by social connectedness (Meta's SCI): pick a version, click a state.">
+<!-- Add-on page (redistricting fork): data from ../data/sci_states/shapes/, written by redistricting_addons.sci_states_page -->
+<style>
+:root {
+  --bg: #12171c; --panel: #181f26; --panel-2: #1f2832; --map-bg: #0e1318;
+  --ink: #dde4ea; --ink-2: #8c9aa7; --rule: #2b3640; --accent: #5fd0c0; --sel: #ffd166;
+  --dem: #2f5ba8; --rep: #b8433a; --mid: #e9e6e1;
+  --font: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) { --bg: #f1f3f2; --panel: #fbfcfb; --panel-2: #e8ecea; --map-bg: #f7f8f7;
+    --ink: #1b252d; --ink-2: #55636e; --rule: #cdd5d9; --accent: #0d7c70; --sel: #b8860b; color-scheme: light; }
+}
+:root[data-theme="light"] { --bg: #f1f3f2; --panel: #fbfcfb; --panel-2: #e8ecea; --map-bg: #f7f8f7;
+  --ink: #1b252d; --ink-2: #55636e; --rule: #cdd5d9; --accent: #0d7c70; --sel: #b8860b; color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 var(--font); }
+a { color: var(--accent); }
+.wrap { max-width: 1280px; margin: 0 auto; padding: 20px 16px 48px; }
+header h1 { font-size: 26px; margin: 4px 0 4px; letter-spacing: -0.01em; }
+header p { margin: 0 0 14px; color: var(--ink-2); max-width: 75ch; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px 18px; align-items: center; margin-bottom: 12px; }
+.controls label { color: var(--ink-2); font-size: 13px; display: flex; gap: 6px; align-items: center; }
+select, button { font: inherit; font-size: 14px; color: var(--ink); background: var(--panel-2); border: 1px solid var(--rule); border-radius: 6px; padding: 5px 8px; }
+button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+.grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 16px; }
+@media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+.card { background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 12px 14px; }
+#map { width: 100%; height: auto; display: block; background: var(--map-bg); border-radius: 8px; }
+#map path.st { stroke: var(--bg); stroke-width: 0.08; cursor: pointer; }
+#map path.st:hover { stroke: var(--ink); stroke-width: 0.12; }
+#map path.st.sel { stroke: var(--sel); stroke-width: 0.25; }
+#map path.ov { fill: none; stroke: var(--ink); stroke-width: 0.06; stroke-dasharray: 0.3 0.25; opacity: .65; pointer-events: none; }
+#map text { font: 600 0.62px var(--font); fill: #111; pointer-events: none; paint-order: stroke; stroke: rgba(255,255,255,.75); stroke-width: .12px; }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; margin-top: 12px; }
+.stat { background: var(--panel); border: 1px solid var(--rule); border-radius: 8px; padding: 8px 10px; }
+.stat b { display: block; font: 600 20px var(--mono); }
+.stat span { color: var(--ink-2); font-size: 12px; }
+#detail h2 { margin: 0 0 2px; font-size: 18px; }
+#detail .sub { color: var(--ink-2); font-size: 13px; margin-bottom: 8px; }
+#detail table, #list table { width: 100%; border-collapse: collapse; font-size: 13px; }
+#detail td, #list td, #list th { padding: 3px 4px; border-bottom: 1px solid var(--rule); }
+#detail td:last-child, #list td.n, #list th.n { text-align: right; font-family: var(--mono); }
+#list { margin-top: 16px; overflow-x: auto; }
+#list th { text-align: left; color: var(--ink-2); font-weight: 500; cursor: pointer; white-space: nowrap; }
+#list tr { cursor: pointer; }
+#list tr.sel td { background: var(--panel-2); }
+.legend { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--ink-2); margin-top: 6px; }
+.legend .bar { flex: 0 0 160px; height: 10px; border-radius: 3px; }
+.note { color: var(--ink-2); font-size: 13px; margin-top: 10px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a href="../">&larr; Redistricting</a>
+    <h1>Fifty states, redrawn by who knows whom</h1>
+    <p>The country regrouped by Meta's Social Connectedness Index: places whose people are Facebook friends end up in one state. Pick a version, colour the map, and click a state for its details. Cohesion = the share of a state's people's friendships that stay inside it. The index follows migration, party and race, so these maps are a lens, not a neutral proposal.</p>
+  </header>
+  <div class="controls">
+    <label>Version <select id="ver"></select></label>
+    <label>Colour <select id="col"><option value="state">by state</option><option value="vote">2020 vote</option><option value="coh">friendship cohesion</option></select></label>
+    <button id="ov" aria-pressed="false" title="Draw today's state lines over the map">Today's lines</button>
+    <button id="lab" aria-pressed="true">Names</button>
+    <button id="theme" title="Light or dark">Theme</button>
+  </div>
+  <div class="grid">
+    <div>
+      <svg id="map" role="img" aria-label="Map of the 50 states"></svg>
+      <div class="legend" id="legend"></div>
+      <div class="stats" id="stats"></div>
+    </div>
+    <div class="card" id="detail"><p class="note">Click a state on the map or in the table.</p></div>
+  </div>
+  <div class="card" id="list"></div>
+  <p class="note">Units are counties, with counties above 100,000 people split into census tracts. Votes are block-group estimates. Data: <code>site/data/sci_states/</code>; method: <code>docs/SCI_STATES.md</code> and <code>docs/SCI_GROW.md</code> in the repository.</p>
+</div>
+<script>
+(function () {
+  const BASE = (function () { let b = window.REDISTRICTING_DATA_BASE; try { const q = new URLSearchParams(location.search).get('data-base'); if (q) b = q; } catch (e) {} b = b || '../data/'; return /\/$/.test(b) ? b : b + '/'; })() + 'sci_states/shapes/';
+  const $ = id => document.getElementById(id);
+  const PAL = ['#4e79a7', '#f28e2b', '#e15759', '#76b7b2', '#59a14f', '#edc948', '#b07aa1', '#ff9da7', '#9c755f', '#bab0ac'];
+  const fmt = n => n == null ? '–' : n.toLocaleString('en-US');
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const cache = {};
+  let cur = null, sel = null, sortKey = 'name', sortDir = 1;
+  async function load(name) { if (!cache[name]) cache[name] = await (await fetch(BASE + name + '.json')).json(); return cache[name]; }
+  function lerp(a, b, t) { const p = x => [1, 3, 5].map(i => parseInt(x.slice(i, i + 2), 16)); const A = p(a), B = p(b); return '#' + A.map((v, i) => Math.round(v + (B[i] - v) * t).toString(16).padStart(2, '0')).join(''); }
+  function voteCol(d) { const t = Math.max(0, Math.min(1, (d - 30) / 40)); return t < .5 ? lerp('#b8433a', '#f4f2ee', t / .5) : lerp('#f4f2ee', '#2f5ba8', (t - .5) / .5); }
+  function cohCol(c) { const t = Math.max(0, Math.min(1, (c - 20) / 60)); return lerp('#f4efe6', '#1d6b5f', t); }
+  // neighbours share a colour rarely: colour greedily by bounding-box overlap (cheap stand-in for adjacency)
+  function stateColours(m) {
+    const bb = m.states.map(s => { let x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9; for (const d of s.paths) for (const pt of d.replace(/[MZ]/g, ' ').trim().split(/\s+/)) { const [x, y] = pt.split(',').map(Number); if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; } return [x0, y0, x1, y1]; });
+    const near = (a, b) => !(a[2] < b[0] - .3 || b[2] < a[0] - .3 || a[3] < b[1] - .3 || b[3] < a[1] - .3);
+    const col = new Array(m.states.length).fill(-1);
+    const order = m.states.map((s, i) => i).sort((i, j) => (bb[j][2] - bb[j][0]) * (bb[j][3] - bb[j][1]) - (bb[i][2] - bb[i][0]) * (bb[i][3] - bb[i][1]));
+    for (const i of order) { const used = new Set(); m.states.forEach((s, j) => { if (j !== i && col[j] >= 0 && near(bb[i], bb[j])) used.add(col[j]); }); let c = 0; while (used.has(c) && c < PAL.length - 1) c++; col[i] = c; }
+    m._bb = bb; return col.map(c => PAL[c]);
+  }
+  function fill(s, i) {
+    const mode = $('col').value;
+    if (mode === 'vote') return voteCol(s.d2020);
+    if (mode === 'coh') return cohCol(s.cohesion_pct);
+    return cur._cols[i];
+  }
+  function label(s) { return cur.capitals_fixed && s.capital ? s.capital : String(s.name).replace(/\s*\(.*\)$/, ''); }
+  async function draw() {
+    const svg = $('map'), m = cur, v = m.view;
+    if (!m._cols) m._cols = stateColours(m);
+    svg.setAttribute('viewBox', v.join(' '));
+    let h = '';
+    m.states.forEach((s, i) => { h += `<path class="st${sel === i ? ' sel' : ''}" data-i="${i}" fill="${fill(s, i)}" d="${s.paths.join('')}"><title>${esc(label(s))}</title></path>`; });
+    if ($('ov').getAttribute('aria-pressed') === 'true' && m.name !== 'today') { const t = await load('today'); h += t.states.map(s => `<path class="ov" d="${s.paths.join('')}"/>`).join(''); }
+    if ($('lab').getAttribute('aria-pressed') === 'true') m.states.forEach((s, i) => { const b = m._bb[i]; if (b[2] - b[0] < 1.2) return; h += `<text x="${(b[0] + b[2]) / 2}" y="${(b[1] + b[3]) / 2}" text-anchor="middle">${esc(label(s))}</text>`; });
+    svg.innerHTML = h;
+    const mode = $('col').value;
+    $('legend').innerHTML = mode === 'vote' ? '<span>30% D</span><span class="bar" style="background:linear-gradient(90deg,#b8433a,#f4f2ee,#2f5ba8)"></span><span>70% D (2020, two-party)</span>'
+      : mode === 'coh' ? '<span>20%</span><span class="bar" style="background:linear-gradient(90deg,#f4efe6,#1d6b5f)"></span><span>80% of friendships kept inside</span>' : '';
+  }
+  function stats() {
+    const m = cur, c = m.cohesion || {};
+    const items = [[c.mean != null ? c.mean.toFixed(1) + '%' : '–', 'mean cohesion'], [c.min != null ? c.min.toFixed(1) + '%' : '–', 'least cohesive state'],
+      [fmt(m.border_km) + ' km', 'border between states'], [m.ties_kept ? m.ties_kept.raw.toFixed(1) + '%' : '–', 'cross-county ties kept'],
+      [m.d_states_2020 + ' of 50', 'states voting D in 2020']];
+    $('stats').innerHTML = items.map(([b, s]) => `<div class="stat"><b>${b}</b><span>${s}</span></div>`).join('') + (m.long_title ? `<p class="note" style="grid-column:1/-1;margin:0">${esc(m.long_title)}</p>` : '');
+  }
+  function detail() {
+    if (sel == null) { $('detail').innerHTML = '<p class="note">Click a state on the map or in the table.</p>'; return; }
+    const s = cur.states[sel];
+    const rows = [['Population', fmt(s.pop)], ...(s.target ? [['Target (2020 population)', fmt(s.target)]] : []),
+      ...(s.dev_pct != null ? [['Population gap', (s.dev_pct > 0 ? '+' : '') + s.dev_pct.toFixed(2) + '%']] : []),
+      ['Friendship cohesion', s.cohesion_pct.toFixed(1) + '%'], ['2020 vote, two-party', s.d2020.toFixed(1) + '% D'],
+      ...(s.largest_county ? [['Largest county', esc(s.largest_county)]] : [])];
+    $('detail').innerHTML = `<h2>${esc(label(s))}</h2><div class="sub">${s.capital && cur.capitals_fixed ? 'Capital: ' + esc(s.capital) + ' · ' : ''}draws from ${esc((s.today_states || []).join(', '))}</div>`
+      + '<table>' + rows.map(([a, b]) => `<tr><td>${a}</td><td>${b}</td></tr>`).join('') + '</table>';
+  }
+  function list() {
+    const cols = [['name', 'State', 0], ['pop', 'People', 1], ['cohesion_pct', 'Cohesion', 1], ['d2020', '2020 D', 1], ['n', 'Today\'s states', 1]];
+    const rows = cur.states.map((s, i) => ({ i, name: label(s), pop: s.pop, cohesion_pct: s.cohesion_pct, d2020: s.d2020, n: (s.today_states || []).length }));
+    rows.sort((a, b) => (a[sortKey] > b[sortKey] ? 1 : a[sortKey] < b[sortKey] ? -1 : 0) * sortDir);
+    $('list').innerHTML = '<table><thead><tr>' + cols.map(([k, t, num]) => `<th class="${num ? 'n' : ''}" data-k="${k}">${t}${sortKey === k ? (sortDir > 0 ? ' ▲' : ' ▼') : ''}</th>`).join('') + '</tr></thead><tbody>'
+      + rows.map(r => `<tr data-i="${r.i}" class="${sel === r.i ? 'sel' : ''}"><td>${esc(r.name)}</td><td class="n">${fmt(r.pop)}</td><td class="n">${r.cohesion_pct.toFixed(1)}%</td><td class="n">${r.d2020.toFixed(1)}%</td><td class="n">${r.n}</td></tr>`).join('') + '</tbody></table>';
+  }
+  function refresh() { draw(); stats(); detail(); list(); }
+  async function pick(name) { cur = await load(name); sel = null; try { history.replaceState(null, '', '?v=' + name); } catch (e) {} refresh(); }
+  $('map').addEventListener('click', e => { const p = e.target.closest('path.st'); sel = p ? +p.dataset.i : null; refresh(); });
+  $('list').addEventListener('click', e => { const th = e.target.closest('th'); if (th) { const k = th.dataset.k; sortDir = sortKey === k ? -sortDir : (k === 'name' ? 1 : -1); sortKey = k; list(); return; } const tr = e.target.closest('tr[data-i]'); if (tr) { sel = +tr.dataset.i; refresh(); } });
+  $('col').onchange = draw;
+  for (const id of ['ov', 'lab']) $(id).onclick = () => { const b = $(id); b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); draw(); };
+  $('theme').onclick = () => { const r = document.documentElement, dark = r.dataset.theme ? r.dataset.theme === 'dark' : !matchMedia('(prefers-color-scheme: light)').matches; r.dataset.theme = dark ? 'light' : 'dark'; };
+  $('ver').onchange = e => pick(e.target.value);
+  (async function boot() {
+    const idx = await (await fetch(BASE + 'index.json')).json();
+    $('ver').innerHTML = idx.map(x => `<option value="${x.name}">${esc(x.title)}</option>`).join('');
+    let v = new URLSearchParams(location.search).get('v');
+    if (!idx.some(x => x.name === v)) v = idx.some(x => x.name === 'free.strong') ? 'free.strong' : idx[0].name;
+    $('ver').value = v; pick(v);
+  })();
+})();
+</script>
+</body>
+</html>

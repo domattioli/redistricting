@@ -2894,6 +2894,8 @@ async function boot() {
   const want = location.hash.slice(1).toUpperCase();
   openState(S.us.states[want] ? want : "PA", false);
 }
+window.__RD_PAGE = { S, isFairNow }; // add-on: lets site/addons/ensemble-panel.js read the page state
 boot();
 })();
 </script>
+<script src="../addons/ensemble-panel.js"></script>

@@ -1,0 +1,34 @@
+# Packaging for the redistricting fork (added; the README's `pip install -e ".[districts]"` needs it).
+#
+# In short (for people): `pip install -e ".[districts]"` installs the solver (`redistricting`) and the
+# add-on tools (`redistricting_addons`); `pip install -e ".[test]"` adds pytest.
+#
+# For AI agents: `redistricting/` is a synced copy from SegmentAnyMesh (see scripts/sync_from_research.py);
+# this file only packages it and does not change it. The add-ons need numpy and scipy only; the solver also
+# needs shapely >= 2.1 (mesh, metrics) and matplotlib (maps).
+
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "redistricting"
+version = "0.1.0"
+description = "Fair-lines redistricting: equal-population, contiguous, compact districts from Census block groups, plus ReCom neutral baselines"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy", "scipy"]
+
+[project.optional-dependencies]
+districts = ["shapely>=2.1", "matplotlib"]
+test = ["pytest", "shapely>=2.1", "matplotlib"]
+
+[project.scripts]
+redistricting-addons-ensemble = "redistricting_addons.ensemble:main"
+redistricting-addons-batch = "redistricting_addons.batch:main"
+
+[tool.setuptools]
+packages = ["redistricting", "redistricting_addons"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
