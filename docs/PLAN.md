@@ -6,7 +6,7 @@ This fork adds a **neutral baseline** to the redistricting toys. Instead of judg
 
 - **Done (phases 1 and 2):** baselines for all 50 states, a "Neutral baseline" panel in the Draw and Fair Lines toys, and a sampler in Re-draw the states.
 - **Done (phase 3):** true neighbours from Census borders (with a report on how much they change results), block-level refinement to within one person (Pennsylvania, Rhode Island, New Hampshire), packaging so the original solver and tests run in this fork, and README notes.
-- **Proposed (SCI track):** use Meta's Social Connectedness Index (who is friends with whom between places) as an optional criterion, for both redrawing the 50 states and drawing districts.
+- **Done (SCI track, first version):** Meta's Social Connectedness Index (who is friends with whom between places) as an optional lens. Districts drawn to keep social ties together, compared with the neutral maps: compact ones do not tilt the national result (2020: 223 Democratic seats against 225 for the neutral medians, 43 states). Fifty new equal-population states drawn by social ties (best keeps 34.2% of cross-county friendships inside one state, against 30.1% for neutral states), and a version that keeps today's capitals (29.9%). See `docs/SCI_DISTRICTS.md` and `docs/SCI_STATES.md`.
 - **Rule:** everything is added as an option. Nothing existing is replaced.
 
 The living version of this plan is a shared doc: <https://claude.ai/artifact/95zAVtG7q6fFeg7176KnBK>.
@@ -92,7 +92,13 @@ Pennsylvania result (county-weighted ensemble, median and 5–95%): 19 (16–22)
 - [x] Packaging: `pyproject.toml` (`pip install -e ".[districts]"`, `".[test]"`); `redistricting_addons/cenpop.py` downloads the official census.gov population file (same rows and populations as the private copy, different bytes, own pinned hash); `python -m redistricting_addons.generate` runs the original solver with it (New Hampshire reproduces the README table row exactly); `tests/conftest.py` lets the original tests use it. All tests pass on a fresh clone.
 - [x] README additions (appended, nothing changed): neutral process vs outcome with the Massachusetts example; random starts in the browser vs deterministic RCB in the package; the results table and research links refer to SegmentAnyMesh files.
 
-**SCI track — proposed, not started.**
+**SCI track — first version done (2026-11-14).**
+
+- [x] Data: `redistricting_addons/sci.py` downloads the HDX county file (2026 snapshot, sha256 pinned, cached, not committed) and writes `site/data/sci/<ST>.json` (raw and distance-adjusted SCI per county pair; national fit log SCI = 16.64 − 1.257 log km over 10.2 million pairs). Connecticut is skipped (the SCI uses its 2022 planning regions).
+- [x] Score: share of cross-county friendship weight (SCI × both populations, own-county pairs left out) inside one district; every sampled and reference plan in the site-graph ensembles now carries it (`sci_ties_kept`; regenerated with `--from-index`, every other number unchanged), and the panel shows it ("Social ties kept together"; browser matches Python exactly).
+- [x] Districts: `redistricting_addons/sci_districts.py`, short bursts of ReCom maximising ties kept, with and without a compactness limit (cut edges at most the neutral median). Compact: 4 of 43 states outside the middle 90% of neutral maps in some election; national totals match the neutral medians within 2 seats. Ties only: maps sprawl and lean a few seats Democratic (2020: 232 against 225). `docs/SCI_DISTRICTS.md`.
+- [x] Fifty states: `redistricting_addons/sci_states.py`, 67,503 units (counties; tracts in counties above 100,000), equal population within 1%. Free: 34.2% raw (neutral 30.1%, 5–95% 29.4–30.4%); distance-adjusted objective gives sprawling states. Capitals fixed: 29.9% (start: weighted graph Voronoi from the capitals, balanced by two-capital Voronoi splits, which keep both states connected; moves are the same splits with random, SCI-shortened edge lengths). Today's states keep 43.1% but are very unequal in size. `docs/SCI_STATES.md`, maps in `docs/sci_states/`.
+- Not done: ZIP-level (ZCTA) SCI for districts; an SCI slider in the Draw toy; a page for the 50-state maps (they are images and JSON for now).
 
 The [Social Connectedness Index](https://data.humdata.org/dataset/social-connectedness-index) (CC0, January 2026 snapshot) gives the relative probability that people in two US counties or ZIP areas (ZCTAs) are Facebook friends: links divided by the product of user counts, rescaled to 1–1,000,000,000 per file, with Gaussian differential-privacy noise and places under 500 users dropped ([data descriptor](https://pages.stern.nyu.edu/~jstroebe/PDF/JKKS_SCI_DateInBrief.pdf)). `us_counties.csv` is 245 MB (keep out of git; download at build time).
 
@@ -102,10 +108,10 @@ The [Social Connectedness Index](https://data.humdata.org/dataset/social-connect
 
 ### Open decisions (owner)
 
-- Offer this work upstream (domattioli/redistricting or SegmentAnyMesh), or keep it in the fork?
-- Population rule for redrawn states: equal population, whole numbers of the 435 districts, or unconstrained?
-- Raw or distance-adjusted SCI as the main criterion?
-- Add voting-age population by race so ensembles and SCI maps can be checked for Voting Rights Act effects?
+- Offer this work upstream (domattioli/redistricting or SegmentAnyMesh), or keep it in the fork? **Decided (2026-11-13): offered upstream as domattioli/redistricting#3.**
+- Population rule for redrawn states: equal population, whole numbers of the 435 districts, or unconstrained? **Decided (2026-11-13): equal population.**
+- Raw or distance-adjusted SCI as the main criterion? Owner unsure; results: raw for whole states (adjusted sprawls), adjusted for districts (raw mostly restates compactness). Proposed: compute and show both; distance-adjusted as the default, because raw SCI mostly restates distance, which ReCom's compactness already rewards.
+- Add voting-age population by race so ensembles and SCI maps can be checked for Voting Rights Act effects? **Decided (2026-11-13): no.** The SCI caution about race still stands in the docs.
 
 ### Risks
 

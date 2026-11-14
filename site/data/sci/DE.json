@@ -1,0 +1,1 @@
+{"v":1,"abbr":"DE","counties":["10001","10003","10005"],"pairs":3,"missing_pairs":0,"counties_in_sci":3,"people_in_counties_missing_from_sci":0,"counties_missing_from_sci":[],"raw":[629608,1132054,270721],"adjusted":[6.654,10.44,6.332],"fit":{"a":16.63921,"b":-1.25695,"pairs":10160156},"source":"Meta Social Connectedness Index, US counties, HDX 2026 snapshot (us_counties.csv)"}

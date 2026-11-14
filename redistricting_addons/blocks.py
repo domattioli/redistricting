@@ -259,12 +259,16 @@ class Plan:
                 self.lab[u] = a
         return 0, 0, 0
 
-    def balance(self, max_iter=20000):
-        """Diffuse population toward integer targets, one hop at a time, until no district can move anything."""
+    def balance(self, max_iter=20000, log=None, every=200):
+        """Diffuse population toward integer targets, one hop at a time, until no district can move anything.
+        ``log`` (optional) gets a progress line every ``every`` rounds."""
         total, k = int(self.pop.sum()), self.k
         q, r = divmod(total, k)
         moved_b = moved_p = 0
-        for _ in range(max_iter):
+        for it in range(max_iter):
+            if log and it % every == 0:
+                log(f"  balance round {it}: largest - smallest = {int(self.pops.max() - self.pops.min()):,} people, "
+                    f"{moved_b:,} units moved")
             if self.pops.max() - self.pops.min() <= 1:
                 break
             # integer targets: q each, plus one for the r districts that are currently largest

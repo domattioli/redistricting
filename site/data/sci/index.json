@@ -1,0 +1,388 @@
+{
+ "fit": {
+  "a": 16.63921,
+  "b": -1.25695,
+  "pairs": 10160156
+ },
+ "AK": {
+  "counties": 30,
+  "missing_pairs": 57,
+  "pairs": 435,
+  "counties_missing_from_sci": [
+   "Bristol Bay",
+   "Yakutat"
+  ],
+  "people_in_counties_missing_from_sci": 1506
+ },
+ "AL": {
+  "counties": 67,
+  "missing_pairs": 0,
+  "pairs": 2211,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "AR": {
+  "counties": 75,
+  "missing_pairs": 0,
+  "pairs": 2775,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "AZ": {
+  "counties": 15,
+  "missing_pairs": 0,
+  "pairs": 105,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "CA": {
+  "counties": 58,
+  "missing_pairs": 0,
+  "pairs": 1653,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "CO": {
+  "counties": 64,
+  "missing_pairs": 63,
+  "pairs": 2016,
+  "counties_missing_from_sci": [
+   "Hinsdale"
+  ],
+  "people_in_counties_missing_from_sci": 788
+ },
+ "CT": {
+  "skipped": "only 0 of 8 counties are in the SCI file (county areas changed after 2020)"
+ },
+ "DE": {
+  "counties": 3,
+  "missing_pairs": 0,
+  "pairs": 3,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "FL": {
+  "counties": 67,
+  "missing_pairs": 0,
+  "pairs": 2211,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "GA": {
+  "counties": 159,
+  "missing_pairs": 0,
+  "pairs": 12561,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "HI": {
+  "counties": 5,
+  "missing_pairs": 4,
+  "pairs": 10,
+  "counties_missing_from_sci": [
+   "Kalawao"
+  ],
+  "people_in_counties_missing_from_sci": 82
+ },
+ "IA": {
+  "counties": 99,
+  "missing_pairs": 0,
+  "pairs": 4851,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "ID": {
+  "counties": 44,
+  "missing_pairs": 43,
+  "pairs": 946,
+  "counties_missing_from_sci": [
+   "Clark"
+  ],
+  "people_in_counties_missing_from_sci": 790
+ },
+ "IL": {
+  "counties": 102,
+  "missing_pairs": 0,
+  "pairs": 5151,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "IN": {
+  "counties": 92,
+  "missing_pairs": 0,
+  "pairs": 4186,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "KS": {
+  "counties": 105,
+  "missing_pairs": 0,
+  "pairs": 5460,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "KY": {
+  "counties": 120,
+  "missing_pairs": 0,
+  "pairs": 7140,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "LA": {
+  "counties": 64,
+  "missing_pairs": 0,
+  "pairs": 2016,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "MA": {
+  "counties": 14,
+  "missing_pairs": 0,
+  "pairs": 91,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "MD": {
+  "counties": 24,
+  "missing_pairs": 0,
+  "pairs": 276,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "ME": {
+  "counties": 16,
+  "missing_pairs": 0,
+  "pairs": 120,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "MI": {
+  "counties": 83,
+  "missing_pairs": 0,
+  "pairs": 3403,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "MN": {
+  "counties": 87,
+  "missing_pairs": 0,
+  "pairs": 3741,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "MO": {
+  "counties": 115,
+  "missing_pairs": 0,
+  "pairs": 6555,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "MS": {
+  "counties": 82,
+  "missing_pairs": 0,
+  "pairs": 3321,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "MT": {
+  "counties": 56,
+  "missing_pairs": 162,
+  "pairs": 1540,
+  "counties_missing_from_sci": [
+   "Petroleum",
+   "Treasure",
+   "Wibaux"
+  ],
+  "people_in_counties_missing_from_sci": 2195
+ },
+ "NC": {
+  "counties": 100,
+  "missing_pairs": 0,
+  "pairs": 4950,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "ND": {
+  "counties": 53,
+  "missing_pairs": 0,
+  "pairs": 1378,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "NE": {
+  "counties": 93,
+  "missing_pairs": 875,
+  "pairs": 4278,
+  "counties_missing_from_sci": [
+   "Arthur",
+   "Banner",
+   "Blaine",
+   "Grant",
+   "Hooker",
+   "Keya Paha",
+   "Logan",
+   "Loup",
+   "McPherson",
+   "Thomas"
+  ],
+  "people_in_counties_missing_from_sci": 6021
+ },
+ "NH": {
+  "counties": 10,
+  "missing_pairs": 0,
+  "pairs": 45,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "NJ": {
+  "counties": 21,
+  "missing_pairs": 0,
+  "pairs": 210,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "NM": {
+  "counties": 33,
+  "missing_pairs": 32,
+  "pairs": 528,
+  "counties_missing_from_sci": [
+   "Harding"
+  ],
+  "people_in_counties_missing_from_sci": 657
+ },
+ "NV": {
+  "counties": 17,
+  "missing_pairs": 16,
+  "pairs": 136,
+  "counties_missing_from_sci": [
+   "Esmeralda"
+  ],
+  "people_in_counties_missing_from_sci": 729
+ },
+ "NY": {
+  "counties": 62,
+  "missing_pairs": 0,
+  "pairs": 1891,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "OH": {
+  "counties": 88,
+  "missing_pairs": 0,
+  "pairs": 3828,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "OK": {
+  "counties": 77,
+  "missing_pairs": 0,
+  "pairs": 2926,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "OR": {
+  "counties": 36,
+  "missing_pairs": 0,
+  "pairs": 630,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "PA": {
+  "counties": 67,
+  "missing_pairs": 0,
+  "pairs": 2211,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "RI": {
+  "counties": 5,
+  "missing_pairs": 0,
+  "pairs": 10,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "SC": {
+  "counties": 46,
+  "missing_pairs": 0,
+  "pairs": 1035,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "SD": {
+  "counties": 66,
+  "missing_pairs": 0,
+  "pairs": 2145,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "TN": {
+  "counties": 95,
+  "missing_pairs": 0,
+  "pairs": 4465,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "TX": {
+  "counties": 254,
+  "missing_pairs": 1006,
+  "pairs": 32131,
+  "counties_missing_from_sci": [
+   "Borden",
+   "Kenedy",
+   "King",
+   "Terrell"
+  ],
+  "people_in_counties_missing_from_sci": 2006
+ },
+ "UT": {
+  "counties": 29,
+  "missing_pairs": 28,
+  "pairs": 406,
+  "counties_missing_from_sci": [
+   "Daggett"
+  ],
+  "people_in_counties_missing_from_sci": 935
+ },
+ "VA": {
+  "counties": 133,
+  "missing_pairs": 0,
+  "pairs": 8778,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "VT": {
+  "counties": 14,
+  "missing_pairs": 0,
+  "pairs": 91,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "WA": {
+  "counties": 39,
+  "missing_pairs": 0,
+  "pairs": 741,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "WI": {
+  "counties": 72,
+  "missing_pairs": 0,
+  "pairs": 2556,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "WV": {
+  "counties": 55,
+  "missing_pairs": 0,
+  "pairs": 1485,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ },
+ "WY": {
+  "counties": 23,
+  "missing_pairs": 0,
+  "pairs": 253,
+  "counties_missing_from_sci": [],
+  "people_in_counties_missing_from_sci": 0
+ }
+}

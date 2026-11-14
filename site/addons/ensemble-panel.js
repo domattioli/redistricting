@@ -187,6 +187,47 @@
     return { seats, share, cut, splits: split.size, trees: () => logTrees(data, labels) };
   }
 
+  /* Social ties kept (Meta's Social Connectedness Index), as redistricting_addons.sci.ties_kept: friendship weight
+     w_ij = SCI_ij * P_i * P_j between different counties; a pair is kept in proportion to how much of both counties'
+     people share a district (split counties count fractionally). Percent of all cross-county weight. */
+  const sciFiles = {}, sciW = {};
+  function sciWeights(data, sci) {
+    if (sciW[data.abbr]) return sciW[data.abbr];
+    const C = sci.counties.length, P = new Float64Array(C);
+    for (let i = 0; i < data.n; i++) P[data.cty[i]] += data.pop[i];
+    const out = {};
+    for (const name of ['adjusted', 'raw']) {
+      const w = new Float64Array(sci[name].length); let t = 0, n = 0;
+      for (let i = 0; i < C; i++) for (let j = i + 1; j < C; j++, n++) { w[n] = sci[name][n] * P[i] * P[j]; t += 2 * w[n]; }
+      for (let x = 0; x < w.length; x++) w[x] = t > 0 ? 2 * w[x] / t : 0;
+      out[name] = w;
+    }
+    return (sciW[data.abbr] = { C, w: out });
+  }
+  function sciKept(data, sci, labels, k) {
+    const { C, w } = sciWeights(data, sci), fr = new Float64Array(C * k), tot = new Float64Array(C);
+    for (let i = 0; i < data.n; i++) { fr[data.cty[i] * k + labels[i]] += data.pop[i]; tot[data.cty[i]] += data.pop[i]; }
+    for (let c = 0; c < C; c++) if (tot[c] > 0) for (let d = 0; d < k; d++) fr[c * k + d] /= tot[c];
+    const res = {};
+    for (const name in w) {
+      let s = 0, n = 0;
+      for (let i = 0; i < C; i++) for (let j = i + 1; j < C; j++, n++) {
+        if (!w[name][n]) continue;
+        let dot = 0; for (let d = 0; d < k; d++) dot += fr[i * k + d] * fr[j * k + d];
+        s += w[name][n] * dot;
+      }
+      res[name] = 100 * s;
+    }
+    return res;
+  }
+  function tiesBand(q, v) {  // more ties kept = higher
+    const P = [5, 25, 50, 75, 95];
+    if (v > q[4]) return 'keeps more ties than 95% of plans';
+    if (v < q[0]) return 'keeps fewer ties than 95% of plans';
+    for (let i = 0; i < 4; i++) if (v <= q[i + 1]) return `between the ${P[i]}th and ${P[i + 1]}th percentile`;
+    return '';
+  }
+
   /* ---------- drawing ---------- */
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const fmt = n => Math.round(n).toLocaleString('en-US');
@@ -307,9 +348,10 @@
     if (!ctx) { root.hidden = true; return; }
     root.hidden = false;
     const v = VARIANTS.find(x => x.id === variant), gr = GRAPHS.find(x => x.id === graphSel);
-    const [ens, index, graph] = await Promise.all([load(`ensembles/${ctx.abbr}${v.file}${gr.file}.json`), load('ensembles/index.json'),
-      gr.id === 'census' ? load(`graphs/${ctx.abbr}.json`) : Promise.resolve(null)]);
+    const [ens, index, graph, sci] = await Promise.all([load(`ensembles/${ctx.abbr}${v.file}${gr.file}.json`), load('ensembles/index.json'),
+      gr.id === 'census' ? load(`graphs/${ctx.abbr}.json`) : Promise.resolve(null), load(`sci/${ctx.abbr}.json`)]);
     if (my !== token) return;
+    if (sci && sci.counties.length === ctx.data.counties.length) sciFiles[ctx.abbr] = sci;
     if (gr.id === 'census' && graph && !censusEdges[ctx.abbr]) censusEdges[ctx.abbr] = Int32Array.from([...graph.edges, ...graph.water_links]);
     if (gr.id === 'census' && !graph) { render(ctx, null, index, v, gr); return; }
     render(ctx, ens, index, v, gr);
@@ -403,6 +445,7 @@
           `. Fewer cut edges = more compact.` +
           (lt ? ` The spanning-tree score is the log of the number of ways to connect each district’s block groups with a tree, summed over districts: compact districts have far more, so higher = more compact.` : '') + `</p>` +
           `<ul class="ens-lines">${shape}</ul>` : '') +
+        sciSection(ctx, ens, placed, k) +
         (missing.length ? `<p class="ens-note">${missing.map(esc).join(' ')}</p>` : '') +
         (ctx.swing ? `<p class="ens-note">The baseline uses actual votes; the swing slider is not applied here.</p>` : '') +
         warn +
@@ -416,6 +459,25 @@
     root.querySelectorAll('details').forEach((d, i) => { if (open[i]) d.open = true; });
     wire();
     extras(ctx, ens);
+  }
+
+  function sciSection(ctx, ens, placed, k) {
+    const sci = sciFiles[ctx.abbr], S = ens.sci_ties_kept;
+    if (!sci || !S || !S.adjusted || !placed.length) return '';
+    const qa = S.adjusted.quantiles, qr = S.raw.quantiles, f1 = x => x.toFixed(1) + '%';
+    const rows = placed.map(p => {
+      const v = sciKept(ctx.data, sci, p.labels, k);
+      return `<li><span class="ens-key" style="background:${MARK[p.role]}"></span><b>${esc(p.name)}</b>: ` +
+        `${f1(v.adjusted)} of cross-county ties kept, ${tiesBand(qa, v.adjusted)} (raw ${f1(v.raw)}, ${tiesBand(qr, v.raw)}).</li>`;
+    }).join('');
+    const miss = sci.counties_missing_from_sci && sci.counties_missing_from_sci.length
+      ? ` Not in the index (no ties counted): ${esc(sci.counties_missing_from_sci.join(', '))}.` : '';
+    return `<p class="ens-cap" style="margin-top:12px">Social ties kept together</p>` +
+      `<p class="ens-note" style="margin-top:0">Share of friendships between people in different counties (Meta’s Social Connectedness Index × population) ` +
+      `where both end up in the same district. Distance-adjusted counts only ties stronger than distance alone predicts; raw is shown in brackets. ` +
+      `Neutral plans, median (5–95%): ${f1(qa[2])} (${f1(qa[0])}–${f1(qa[4])}), raw ${f1(qr[2])} (${f1(qr[0])}–${f1(qr[4])}).</p>` +
+      `<ul class="ens-lines">${rows}</ul>` +
+      `<p class="ens-note">A lens, not a neutral rule: friendship follows migration, party and race, so a map that keeps more ties is not fairer by that fact.${miss}</p>`;
   }
 
   /* ---------- small additions next to the page's own numbers ---------- */
@@ -482,6 +544,6 @@
     if (el) new MutationObserver(schedule).observe(el, { childList: true });
   }
   if (isFair) onceFairLines();
-  window.__RD_ENSEMBLE = { logTrees };  // for checking against redistricting_addons.ensemble.log_spanning_trees
+  window.__RD_ENSEMBLE = { logTrees, sciKept: (data, labels, k) => sciFiles[data.abbr] && sciKept(data, sciFiles[data.abbr], labels, k) };  // for checking against redistricting_addons.ensemble.log_spanning_trees
   schedule();
 })();

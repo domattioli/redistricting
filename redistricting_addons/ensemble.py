@@ -57,6 +57,7 @@ class Graph:
     abbr: str = ""
     graph: str = "site"  # "site" (the toys' Delaunay graph) or "census" (shared borders, redistricting_addons.graphs)
     water_links: bool = True
+    sci: dict | None = None  # "raw"/"adjusted" -> (C, C) friendship weights (redistricting_addons.sci), or None
 
     @property
     def n(self) -> int:
@@ -82,13 +83,15 @@ GRAPHS = {
 }
 
 
-def load_state(path: str | Path, graph: str = "site", water_links: bool = True) -> Graph:
+def load_state(path: str | Path, graph: str = "site", water_links: bool = True, sci: bool = True) -> Graph:
     """Load ``site/data/<ST>.json`` (the toys' data format) as a Graph.
 
     ``graph="site"`` (default) uses the page's own edges plus its water ``bridges``; ``graph="census"`` uses
     the shared-border graph built by ``redistricting_addons.graphs`` plus its ``water_links``. With
     ``water_links=False`` the water bridges / links are left out (pieces cut off by water then stay separate,
     and ReCom needs a connected graph, so states with islands cannot be sampled that way).
+    With ``sci=True`` (default) and ``site/data/sci/<ST>.json`` present, the Social Connectedness Index weights are
+    loaded too and every plan gets ``sci_ties_kept`` (redistricting_addons.sci); it adds statistics only.
     """
     path = Path(path)
     d = json.loads(path.read_text(encoding="utf-8"))
@@ -115,9 +118,16 @@ def load_state(path: str | Path, graph: str = "site", water_links: bool = True) 
         plans["solver"] = np.asarray(d["plan"], np.int64)
     if "current" in d:
         plans["official"] = np.asarray(d["current"], np.int64)
-    return Graph(pop=np.asarray(d["pop"], float), edges=edges, county=np.asarray(d["cty"], np.int64),
+    county = np.asarray(d["cty"], np.int64)
+    sci_w = None
+    sci_p = path.parent / "sci" / f"{d.get('abbr', '')}.json"
+    if sci and sci_p.exists():
+        from .sci import matrices
+        sci_w = matrices(json.loads(sci_p.read_text(encoding="utf-8")),
+                         np.bincount(county, weights=np.asarray(d["pop"], float), minlength=len(d["counties"])))
+    return Graph(pop=np.asarray(d["pop"], float), edges=edges, county=county,
                  elections=elections, plans=plans, k=int(d["seats"]), abbr=d.get("abbr", ""),
-                 graph=graph, water_links=water_links)
+                 graph=graph, water_links=water_links, sci=sci_w)
 
 
 def grid_graph(nx: int, ny: int, pop=None) -> Graph:
@@ -319,6 +329,9 @@ def plan_stats(graph: Graph, labels, k: int, trees: bool = False) -> dict:
            "max_dev_pct": float(100 * np.max(np.abs(pops / (graph.pop.sum() / k) - 1)))}
     if trees:
         out["log_spanning_trees"] = log_spanning_trees(graph, labels, k)
+    if graph.sci is not None and graph.county is not None:
+        from .sci import ties_kept
+        out["sci_ties_kept"] = ties_kept(graph.sci, graph.county, graph.pop, labels, k)
     if graph.county is not None:
         live = graph.pop > 0
         pairs = np.unique(graph.county[live] * k + labels[live])
@@ -360,6 +373,10 @@ def summarize(graph: Graph, samples: list[list[dict]], k: int) -> dict:
     if "log_spanning_trees" in flat[0]:
         v = [s["log_spanning_trees"] for s in flat]
         out["log_spanning_trees"] = {"quantiles": _q(v), "mean": round(float(np.mean(v)), 2)}
+    if "sci_ties_kept" in flat[0]:
+        out["sci_ties_kept"] = {name: {"quantiles": _q([s["sci_ties_kept"][name] for s in flat]),
+                                       "mean": round(float(np.mean([s["sci_ties_kept"][name] for s in flat])), 3)}
+                                for name in flat[0]["sci_ties_kept"]}
     if "county_splits" in flat[0]:
         out["county_splits"] = {"histogram": _hist([s["county_splits"] for s in flat]),
                                 "quantiles": _q([s["county_splits"] for s in flat])}
@@ -397,6 +414,10 @@ def reference(graph: Graph, labels, k: int, flat: list[dict]) -> dict:
         out["log_spanning_trees"] = round(s["log_spanning_trees"], 2)
         out["log_spanning_trees_pct_at_or_below"] = _pct_at_or_below([f["log_spanning_trees"] for f in flat],
                                                                       s["log_spanning_trees"])
+    if "sci_ties_kept" in s and "sci_ties_kept" in flat[0]:
+        out["sci_ties_kept"] = {name: {"value": round(v, 3),
+                                       "pct_at_or_below": _pct_at_or_below([f["sci_ties_kept"][name] for f in flat], v)}
+                                for name, v in s["sci_ties_kept"].items()}
     if "county_splits" in s:
         out["county_splits"] = s["county_splits"]
         out["county_splits_pct_at_or_below"] = _pct_at_or_below([f["county_splits"] for f in flat], s["county_splits"])
