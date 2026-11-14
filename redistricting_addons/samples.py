@@ -124,6 +124,71 @@ def districts(st: str, steps: int = 3000) -> Path:
     return out
 
 
+TECHNIQUES = [
+    ("Official map (in use)", "official"),
+    ("Fair Lines solver (the toys' own)", "solver"),
+    ("Neutral ReCom, plain", "recom1"),
+    ("Neutral ReCom, counties kept whole", "recom20"),
+    ("Social ties, no shape limit", "sci.adjusted"),
+    ("Social ties, compact", "sci.adjusted.compact"),
+]
+
+
+def techniques(st: str, steps: int = 3000) -> Path:
+    """Added option: one state drawn six ways (``TECHNIQUES``), districts filled by 2020 Democratic share, written
+    to ``docs/samples/<ST>.techniques.png``. ReCom maps are the plan after ``steps`` accepted moves from the solver
+    plan (seed 1, 1% tolerance), county weight 1 (plain) or 20; social-ties maps are the ``sci_districts`` files."""
+    plt, PolyCollection, cmap = _mpl()
+    d = json.loads((ROOT / "site" / "data" / f"{st}.json").read_text(encoding="utf-8"))
+    k = int(d["seats"])
+    g = load_state(ROOT / "site" / "data" / f"{st}.json", sci=False)
+    plans = []
+    for name, key in TECHNIQUES:
+        if key == "official":
+            lab = np.asarray(d["current"])
+        elif key == "solver":
+            lab = np.asarray(d["plan"])
+        elif key.startswith("recom"):
+            lab = None
+            for lab in recom_chain(g, g.plans["solver"], k, steps, 0.01, float(key[5:]), seed=1):
+                pass
+            lab = lab.copy()
+        else:
+            p = ROOT / "site" / "data" / "sci" / "districts" / f"{st}.{key[4:]}.json"
+            if not p.exists():
+                continue
+            lab = np.asarray(json.loads(p.read_text())["labels"])
+        plans.append((name, lab))
+    polys = _state_polys(d["fips"])
+    lat0 = float(np.mean([r[:, 1].mean() for p in polys[:200] for r in p])) if polys else 40
+    c0 = np.cos(np.radians(lat0))
+    cols = 3
+    rows = (len(plans) + cols - 1) // cols
+    fig, axes = plt.subplots(rows, cols, figsize=(6 * cols, 5.4 * rows))
+    axes = np.atleast_1d(axes).ravel()
+    for ax, (name, lab) in zip(axes, plans):
+        sh = _shares(d, lab, k)
+        verts, fc = [], []
+        for i, rings in enumerate(polys):
+            for r in rings:
+                verts.append(np.column_stack([r[:, 0] * c0, r[:, 1]])); fc.append(cmap(np.clip((sh[lab[i]] - .3) / .4, 0, 1)))
+        ax.add_collection(PolyCollection(verts, facecolors=fc, edgecolors=fc, linewidths=.2))
+        _outlines(ax, polys, lab, k, c0)
+        ax.autoscale_view(); ax.set_aspect("equal"); ax.axis("off")
+        s16, s20, s24 = _seats(d, lab, k)
+        ax.set_title(f"{name}\nDemocratic seats of {k}: {s16} (2016), {s20} (2020), {s24} (2024)", fontsize=11)
+    for ax in axes[len(plans):]:
+        ax.axis("off")
+    fig.suptitle(f"{d['name']}: one state, six ways to draw it (districts coloured by 2020 vote)",
+                 fontsize=14, x=.01, ha="left")
+    fig.tight_layout(rect=(0, 0, 1, 0.95))
+    OUT.mkdir(parents=True, exist_ok=True)
+    out = OUT / f"{st}.techniques.png"
+    fig.savefig(out, dpi=110, facecolor="white")
+    plt.close(fig)
+    return out
+
+
 def states(variant: str = "free.compact", seed: int = 0, others=None, out_name: str = "states.png") -> Path:
     """Today's states beside the neutral sample and ``variant`` (default), or beside ``others``, a list of
     (title, sci_states variant) pairs (added option, e.g. the ``sci_grow`` versions), written to ``out_name``."""
@@ -203,12 +268,16 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(prog="python -m redistricting_addons.samples", description=__doc__.split("\n\n")[0])
     ap.add_argument("--states", nargs="*", default=["PA", "NC", "TX", "WI"])
     ap.add_argument("--fifty", default="free.compact", help="sci_states variant for the 50-state picture ('' to skip)")
+    ap.add_argument("--techniques", nargs="*", default=[],
+                    help="also docs/samples/<ST>.techniques.png: each state drawn six ways")
     ap.add_argument("--grown", action="store_true", help="also docs/samples/states_grown.png (needs sci_grow output)")
     a = ap.parse_args(argv)
     for st in a.states:
         print("wrote", districts(st))
     if a.fifty:
         print("wrote", states(a.fifty))
+    for st in a.techniques:
+        print("wrote", techniques(st))
     if a.grown:  # added option: today's states beside the sci_grow versions
         print("wrote", states(others=[("Grown from today's capitals by friendships (today's populations)", "grown"),
                                       ("Grown, then made friendship-compact", "grown.strong"),

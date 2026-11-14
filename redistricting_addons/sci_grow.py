@@ -151,8 +151,11 @@ class StrongChain(S.Chain):
     """``sci_states.Chain`` plus per-state targets, a border-km cap and a cohesion floor (see module docstring)."""
 
     def __init__(self, U, labels, k, tol, objective, *, targets=None, full_edges=None, border_km=None,
-                 max_border_km=None, floor=0.0, **kw):
+                 max_border_km=None, floor=0.0, smooth=None, **kw):
+        # smooth (added option): with capitals, split pairs by plain km distances jittered by +-smooth (no SCI
+        # shortening of edges), so the new border is close to the straight bisector between the two capitals
         super().__init__(U, labels, k, tol, objective, cohesion=True, **kw)
+        self.smooth = smooth
         self.T = np.full(k, self.ideal) if targets is None else np.asarray(targets, float)
         self.fe, self.fkm = full_edges, border_km
         self.max_km, self.floor = max_border_km, floor
@@ -191,7 +194,11 @@ class StrongChain(S.Chain):
         if self.caps is not None:
             loc = {int(u): i for i, u in enumerate(nodes)}
             ca, cb = loc[int(self.caps[a])], loc[int(self.caps[b])]
-            length = self.km[em] * self.rng.uniform(0.85, 1.15, int(em.sum())) / w
+            if self.smooth is not None:
+                # random per-call stretch toward one capital moves the bisector without making it jagged
+                length = self.km[em] * self.rng.uniform(1 - self.smooth, 1 + self.smooth, int(em.sum()))
+            else:
+                length = self.km[em] * self.rng.uniform(0.85, 1.15, int(em.sum())) / w
             side = S.voronoi_split(nodes.size, eu, ev, length, p, ca, cb, ta - da, ta + da, tb - db, tb + db, self.rng)
             if side is None:
                 return False
@@ -330,7 +337,9 @@ def _finish(U, ch, name, info, current, km, today_km, targets=None):
 def report() -> None:
     """docs/SCI_GROW.md from the saved files (with free.compact and today's states for comparison)."""
     names = {"free.compact": "Equal states, friendship-compact (earlier)", "free.strong": "Equal states, strongly compact",
-             "grown": "Grown from capitals", "grown.strong": "Grown from capitals, then compact"}
+             "grown": "Grown from capitals", "grown.strong": "Grown from capitals, then compact",
+             "capitals.compact": "Today's capitals, equal states (earlier)",
+             "capitals.strong": "Today's capitals, equal states, strongly compact"}
     res = {v: json.loads((S.OUT / f"{v}.json").read_text(encoding="utf-8")) for v in names if (S.OUT / f"{v}.json").exists()}
     if not res:
         return
@@ -452,6 +461,24 @@ def main(argv=None) -> int:
             short_bursts_ = S.short_bursts(ch, a.bursts, a.burst)
             info = {**base, "title": "Today's capitals and populations, grown by friendships, then made friendship-compact"
                     " (no corner touching, no more border than today)", "kind": "grown", "objective": "compact",
+                    "capitals_fixed": True}
+            info["params"].update(bursts=a.bursts, burst=a.burst, floor=a.floor, max_border_km=round(today_km, 1))
+        elif v == "capitals.strong":
+            # today's capitals, equal populations: grown to 1/50 each by friendship, balanced, then made compact
+            eq = np.full(k, U["pop"].sum() / k)
+            if resumed:
+                lab = load(v)[0]
+            else:
+                # growth by friendship leaves most of the country unclaimed at 1/50 each (big metros fill up
+                # first), so start from the weighted capital Voronoi (smooth, near-straight borders) instead
+                lab = S.capital_voronoi(U2, caps, k, iters=3000)
+            ch = StrongChain(U2, lab, k, a.tol, "raw", capitals=caps, max_border_km=today_km, smooth=0.03,
+                             seed=a.seed + 27 + 1000 * resumed, **common)
+            if not resumed:
+                balance_targets(ch)
+            S.short_bursts(ch, a.bursts, a.burst)
+            info = {**base, "title": "Today's 50 capitals, equal populations, strongly friendship-compact (no corner "
+                    "touching, border in km capped at today's)", "kind": "capitals", "objective": "strong",
                     "capitals_fixed": True}
             info["params"].update(bursts=a.bursts, burst=a.burst, floor=a.floor, max_border_km=round(today_km, 1))
         elif v == "free.strong":

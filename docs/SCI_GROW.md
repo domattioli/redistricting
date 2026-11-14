@@ -13,6 +13,7 @@
 | Equal states, strongly compact | 50.3% | 27.7% | 35,599 | 32.1% | [free.strong.png](sci_states/free.strong.png) |
 | Grown from capitals | 55.3% | 35.0% | 49,786 | 41.7% | [grown.png](sci_states/grown.png) |
 | Grown from capitals, then compact | 54.4% | 36.3% | 40,200 | 41.3% | [grown.strong.png](sci_states/grown.strong.png) |
+| Today's capitals, equal states (earlier) | 45.8% | 23.1% | 62,111 | 28.8% | [capitals.compact.png](sci_states/capitals.compact.png) |
 | Today's states | 56.6% | | 38,600 | 43.1% | |
 
 ![Equal states, strongly compact](sci_states/free.strong.png)
@@ -20,6 +21,8 @@
 ![Grown from capitals](sci_states/grown.png)
 
 ![Grown from capitals, then compact](sci_states/grown.strong.png)
+
+![Today's capitals, equal states (earlier)](sci_states/capitals.compact.png)
 
 ---
 
