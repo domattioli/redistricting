@@ -116,7 +116,7 @@ def districts(st: str, steps: int = 3000) -> Path:
         ax.set_title(f"{name}\nDemocratic seats of {k}: {s16} (2016), {s20} (2020), {s24} (2024)", fontsize=11)
     fig.suptitle(f"{d['name']}: three maps, districts coloured by 2020 vote (red = Republican, blue = Democratic)",
                  fontsize=13, x=.01, ha="left")
-    fig.tight_layout()
+    fig.tight_layout(rect=(0, 0, 1, 0.93))  # leave room for the overall title
     OUT.mkdir(parents=True, exist_ok=True)
     out = OUT / f"{st}.png"
     fig.savefig(out, dpi=130, facecolor="white")
